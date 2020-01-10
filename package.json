@@ -6,20 +6,35 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "babel-node --config-file ./.babel.server server.js"
   },
   "author": "Harm Meijer",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "bootstrap": "^4.4.1",
     "express": "^4.17.1",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^9.1.7",
+    "next-redux-wrapper": "^4.0.1",
+    "node-sass": "^4.13.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^2.3.0"
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "prettier": "^1.19.1"
   }
 }
