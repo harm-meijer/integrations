@@ -19,7 +19,7 @@ const ProductDetail = ({ product }) => (
             <div className="vendor-logo">
               <img
                 src={product.logo}
-                style={{ width: '100%' }}
+                className="vendor-image"
               />
             </div>
           )}
