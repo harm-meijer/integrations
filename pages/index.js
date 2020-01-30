@@ -18,11 +18,7 @@ function HomePage({ query }) {
         title="Popular Products"
         columns={4}
       /> */}
-      <ProductList
-        query={query}
-        title="Other Products"
-        columns={6}
-      />
+      <ProductList query={query} title="All Integrations" />
     </Layout>
   )
 }

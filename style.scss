@@ -106,6 +106,9 @@ body {
   letter-spacing: 0px;
   font-style: normal;
   color: #333333;
+  &.small {
+    font-size: 24px;
+  }
 }
 .container.integration {
   max-width: 90%;
@@ -118,5 +121,13 @@ body {
   }
   & .description {
     margin-bottom:30px;
+  }
+}
+.product-list-item {
+  cursor: pointer;
+  & img {
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: rgb(166, 153, 166) 4px -4px 20px 0px;
   }
 }

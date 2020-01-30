@@ -16,14 +16,19 @@ const List = ({
   queryKey,
   total,
   title,
-  subTitle
+  subTitle,
+  columns
 }) => {
-  return (
+  return products.length ? (
     <Container className="product-list">
       <Row>
         <Col>
           <h1 className="integration-header">{title}</h1>
-          {subTitle && <h3>{subTitle}</h3>}
+          {subTitle && (
+            <h3 className="integration-header small">
+              {subTitle}
+            </h3>
+          )}
         </Col>
       </Row>
       {path && total > 1 && (
@@ -46,12 +51,28 @@ const List = ({
       {products.map((productRow, index) => (
         <Row key={index}>
           {productRow.map(product => (
-            <Col key={product.id} sm={3}>
+            <Col key={product.id} sm={12 / columns}>
               <Product {...product} />
             </Col>
           ))}
         </Row>
       ))}
+    </Container>
+  ) : (
+    <Container className="product-list">
+      <Row>
+        <Col>
+          <h1 className="integration-header">{title}</h1>
+          {subTitle && (
+            <h3 className="integration-header small">
+              {subTitle}
+            </h3>
+          )}
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={12}>No results found</Col>
+      </Row>
     </Container>
   )
 }
@@ -82,7 +103,8 @@ const ProductListContainer = ({
         path,
         queryKey,
         title,
-        subTitle
+        subTitle: title === subTitle ? '' : subTitle,
+        columns
       }),
     [
       products,
@@ -91,7 +113,8 @@ const ProductListContainer = ({
       path,
       queryKey,
       title,
-      subTitle
+      subTitle,
+      columns
     ]
   )
 }

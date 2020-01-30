@@ -7,8 +7,11 @@ import { selectQuery } from '../store/selectors'
 function ProductsSearch(props) {
   return (
     <Layout title={`Search results for: ${props.query.q}`}>
-      <div>Search results for: {props.query['q']}</div>
-      <ProductList path="search" queryKey="q" />
+      <ProductList
+        path="search"
+        queryKey="q"
+        title={`Results for: ${props.query.q}`}
+      />
     </Layout>
   )
 }

@@ -6,8 +6,8 @@ const Product = ({ logo, ShortDescription, slug }) => (
     href={`/integration?slug=${slug}`}
     as={`/integration/${slug}`}
   >
-    <div style={{ cursor: 'pointer' }}>
-      <img src={logo} style={{ width: '100%' }} />
+    <div className="product-list-item">
+      <img src={logo} />
       <div>{ShortDescription}</div>
     </div>
   </Link>
