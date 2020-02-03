@@ -6,9 +6,15 @@ import {
 import { useSelector } from 'react-redux'
 import { useProducts } from '../hooks'
 import HtmlDiv from './HtmlDiv'
+import Screenshots from './Screenshots'
 
 const ProductDetail = ({ product }) => (
   <div className="vendor-details">
+    <img
+      src={product.logo}
+      className="vendor-logo"
+      align="right"
+    />
     <h1 className="integration-header">
       About the product
     </h1>
@@ -23,23 +29,7 @@ const ProductDetail = ({ product }) => (
       content={product.Description}
       className="description"
     />
-    {product.screenshots.length > 0 && (
-      <div>
-        <h1 className="integration-header">
-          Screenshots and Videos
-        </h1>
-        {product.screenshots.map(href => (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={href}
-          >
-            <img className="vendor-image" src={href} />
-          </a>
-        ))}
-      </div>
-    )}
+    <Screenshots product={product} />
   </div>
 )
 export default function ProductDetailContainer() {

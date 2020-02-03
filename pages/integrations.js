@@ -20,8 +20,6 @@ function ProductsOfCategory(props) {
       <ProductList
         path="integrations"
         queryKey="category"
-        title={props.title}
-        subTitle={props.subTitle}
       />
     </Layout>
   )

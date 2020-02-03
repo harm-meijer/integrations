@@ -15,22 +15,10 @@ const List = ({
   path,
   queryKey,
   total,
-  title,
-  subTitle,
   columns
 }) => {
   return products.length ? (
     <Container className="product-list">
-      <Row>
-        <Col>
-          <h1 className="integration-header">{title}</h1>
-          {subTitle && (
-            <h3 className="integration-header small">
-              {subTitle}
-            </h3>
-          )}
-        </Col>
-      </Row>
       {path && total > 1 && (
         <Row>
           <Col>
@@ -60,16 +48,6 @@ const List = ({
     </Container>
   ) : (
     <Container className="product-list">
-      <Row>
-        <Col>
-          <h1 className="integration-header">{title}</h1>
-          {subTitle && (
-            <h3 className="integration-header small">
-              {subTitle}
-            </h3>
-          )}
-        </Col>
-      </Row>
       <Row>
         <Col sm={12}>No results found</Col>
       </Row>
