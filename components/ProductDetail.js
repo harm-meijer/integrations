@@ -35,7 +35,7 @@ const ProductDetail = ({ product }) => (
             commercetools
           </h1>
           <HtmlDiv
-            content={product.ShortDescription}
+            content={product.description}
             className="description"
           />
           <h1 className="integration-header">
@@ -61,6 +61,7 @@ export default function ProductDetailContainer() {
   const product = useSelector(state =>
     selectProductsList(state, query)
   )[0]
+  console.log(product)
 
   return useMemo(
     () => (product ? ProductDetail({ product }) : ''),

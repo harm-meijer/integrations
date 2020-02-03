@@ -85,13 +85,15 @@ const getToken = (refresh = false) => {
 }
 
 const withToken = (() => {
-  var token = getToken()
+  let token = getToken()
+  let tries = 0
   return fn => {
     const doRequest = (...args) =>
       token
         .then(token => fn(...args.concat(token)))
         .catch(err => {
-          if (err.statusCode === 401) {
+          tries = tries + 1
+          if (err.statusCode === 401 && tries < 3) {
             token = getToken(true)
             return doRequest(...args)
           }

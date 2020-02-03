@@ -79,7 +79,8 @@ const asProduct = cat => product => {
       'metaTitle',
       'name',
       'slug',
-      'searchKeywords'
+      'searchKeywords',
+      'description'
     ].reduce((result, key) => {
       result[key] = product[key]?.[LANGUAGE]
       return result

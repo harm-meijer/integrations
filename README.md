@@ -17,3 +17,9 @@ const secret = {
 module.exports = secret;
 
 ```
+
+## Cache
+
+All api calls will be cached on the server, to clear cache you can open the url: http://localhost:8080/api/flush-cache
+
+For debugging you can set SERVER_HYDRATE to false in `next.config.js` and noting will be fetched on the server, this will preven cache problems as well.
