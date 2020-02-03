@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Link from 'next/link'
-function Header({ Menu, Search }) {
+function Header({ Menu, Search, SubHeader = () => '' }) {
   return (
-    <header className="bg-commercetools">
+    <header className="header">
       <Navbar expand="sm">
         <Navbar.Brand>
           <Link href="/">
@@ -21,6 +21,7 @@ function Header({ Menu, Search }) {
           <Search />
         </Navbar.Collapse>
       </Navbar>
+      <SubHeader />
     </header>
   )
 }

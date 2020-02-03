@@ -3,26 +3,7 @@ body {
   font-family: 'Open Sans';
   font-size: 18px;
 }
-.bg-commercetools{
-  background-color: rgb(57,101,116);
-  a.nav-link>span { color:white}
-  a.dropdown-toggle.nav-link{
-    &> span {
-      color:white
-    }
-    &::after {color:white}
-  }
-  .dropdown-menu.show {
-    background-color: rgb(57,101,116);
-    margin-top:0px;
-    a.dropdown-item {
-      color:white;
-      &:hover {
-        color:black
-      }
-    }
-  }
-}
+
 .logo {
   max-width: 180px;
   margin-left: 35px;
@@ -91,16 +72,6 @@ body {
   border-radius: 6px 0 6px 6px;
 }
 
-
-
-
-
-
-
-
-
-
-
 .integration-header {
   font-size: 28px;
   margin-bottom: 30px;
@@ -113,11 +84,17 @@ body {
     font-size: 24px;
   }
 }
-.container.integration {
-  max-width: 90%;
-  margin-top: 50px;
+.integration {
+  padding-bottom: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  & h1 {
+    color:white;
+  }
 }
 .vendor-details {
+  padding-left: 10%;
+  padding-right: 10%;
   & .title {
     font-weight: bold;
     margin-top:30px;
@@ -133,4 +110,40 @@ body {
     width: 100%;
     box-shadow: rgb(166, 153, 166) 4px -4px 20px 0px;
   }
+}
+.header {
+  background-image: url(https://commercetools.com/wp-content/uploads/2018/07/Platform_Banner.png);
+  max-width: 100%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  & .navbar {
+    background-color: rgba(57,101,116,0.6);
+    a.nav-link>span { color:white}
+    a.dropdown-toggle.nav-link{
+      &> span {
+        color:white
+      }
+      &::after {color:white}
+    }
+    .dropdown-menu.show {
+      background-color: rgb(57,101,116);
+      margin-top:0px;
+      a.dropdown-item {
+        color:white;
+        &:hover {
+          color:black
+        }
+      }
+    }
+  }
+}
+.link-button {
+  margin-right: 20px;
+}
+#content>.container {
+  max-width: 80%;
+  padding:0px;
 }

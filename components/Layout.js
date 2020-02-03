@@ -23,7 +23,11 @@ export default function Layout(props) {
           crossOrigin="anonymous"
         />
       </Head>
-      <Header Menu={Menu} Search={Search} />
+      <Header
+        Menu={Menu}
+        Search={Search}
+        SubHeader={props.header}
+      />
       <div id="content">{props.children}</div>
     </React.Fragment>
   )

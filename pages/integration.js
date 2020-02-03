@@ -6,6 +6,7 @@ import {
   selectProductBySlug
 } from '../store/selectors'
 import ProductDetail from '../components/ProductDetail'
+import ProductDetailHeaderContainer from '../components/ProductDetailHeader'
 
 function ProductDetailPage({
   productName,
@@ -17,6 +18,7 @@ function ProductDetailPage({
       title={productName}
       metaDescription={metaDescription}
       metaKeywords={metaKeywords}
+      header={ProductDetailHeaderContainer}
     >
       <ProductDetail />
     </Layout>

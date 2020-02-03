@@ -1,34 +1,33 @@
 import React, { useMemo } from 'react'
+import { Button } from 'react-bootstrap'
 
-const Links = ({ links }) => (
+const Links = links => (
   <React.Fragment>
-    <h1 className="integration-header">Links</h1>
-    <ul>
-      {links.map(([name, link]) => (
-        <li key={name}>
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {name}
-          </a>
-        </li>
-      ))}
-    </ul>
+    {links.map(([txt, href]) => (
+      <Button
+        variant="primary"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        key={txt}
+        className="link-button"
+      >
+        {txt}
+      </Button>
+    ))}
   </React.Fragment>
 )
 export default function LinksContainer({ product }) {
   return useMemo(() => {
     const links = !product
       ? []
-      : ['documentation', 'demo', 'Download']
-          .map(key => [key, product[key]])
-          .filter(([, val]) => val)
-    return !links.length
-      ? ''
-      : Links({
-          links
-        })
+      : [
+          ['Download', 'Download'],
+          ['Documentation', 'documentation'],
+          ['Demo', 'demo']
+        ]
+          .map(([txt, key]) => [txt, product[key]])
+          .filter(([, href]) => href)
+    return !links.length ? '' : Links(links)
   }, [product])
 }

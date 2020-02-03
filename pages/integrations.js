@@ -7,6 +7,7 @@ import {
   selectCategoryBySlug,
   selectProductsList
 } from '../store/selectors'
+import IntegrationsHeader from '../components/IntegrationsHeader'
 
 function ProductsOfCategory(props) {
   return (
@@ -14,6 +15,7 @@ function ProductsOfCategory(props) {
       title={props.title}
       metaDescription={props.metaDescription}
       metaKeywords={props.metaKeywords}
+      header={IntegrationsHeader}
     >
       <ProductList
         path="integrations"
