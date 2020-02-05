@@ -3,7 +3,6 @@ import {
   selectCategoriesNested,
   selectProductsList
 } from '../store/selectors'
-import { LANGUAGE } from '../constants'
 import { loadProducts } from '../store/actions'
 
 function Sitemap() {}

@@ -2,16 +2,23 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { needProducts, needCategories } from '../helpers'
 import ProductList from '../components/ProductList'
-import { selectQuery } from '../store/selectors'
+import {
+  selectQuery,
+  selectProductsList
+} from '../store/selectors'
+import IndexHeaderHeader from '../components/IndexHeader'
 
 function ProductsSearch(props) {
   return (
-    <Layout title={`Search results for: ${props.query.q}`}>
-      <ProductList
-        path="search"
-        queryKey="q"
-        title={`Results for: ${props.query.q}`}
-      />
+    <Layout
+      title={props.title}
+      subTitle={props.subTitle}
+      header={IndexHeaderHeader({
+        title: props.title,
+        subTitle: props.subTitle
+      })}
+    >
+      <ProductList path="search" queryKey="q" />
     </Layout>
   )
 }
@@ -21,7 +28,21 @@ ProductsSearch.getInitialProps = ({ store }) => {
     return Promise.all([
       needCategories(store, query),
       needProducts(store, query)
-    ]).then(() => ({ query }))
+    ]).then(() => {
+      const products = selectProductsList(
+        store.getState(),
+        query
+      )
+      return {
+        query,
+        title: `Search results for: ${query.q}`,
+        subTitle: products.length
+          ? `Found ${products.length} result${
+              products.length > 1 ? 's' : ''
+            }`
+          : 'No results found'
+      }
+    })
   }
   return {
     query

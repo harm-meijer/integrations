@@ -40,7 +40,7 @@ export const selectProductsRequested = createSelector(
     return result.requested
   }
 )
-const asCategory = category => ({
+export const asCategory = category => ({
   ...category,
   slug: category.slug[LANGUAGE],
   name: category.name[LANGUAGE],
