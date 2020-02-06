@@ -61,16 +61,16 @@ HomePage.getInitialProps = ({ store }) => {
       })
       .then(([list]) => {
         return {
-          title: 'Integrations',
-          subTitle: 'Commercetools Integrations',
+          title: 'commercetools Integration Marketplace',
+          subTitle: 'Find official third party integrations',
           list,
           query
         }
       })
   }
   return {
-    title: 'Integrations',
-    subTitle: 'Commercetools Integrations',
+    title: 'commercetools Integration Marketplace',
+    subTitle: 'Find official third party integrations',
     list: [],
     query
   }

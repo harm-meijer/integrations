@@ -6,9 +6,11 @@ import {
 import { useSelector } from 'react-redux'
 import { useProducts } from '../hooks'
 import Links from './Links'
+import IntegrationBadges from "./IntegrationBadges";
 
 const ProductDetailHeader = product => (
   <div className="integration">
+    <IntegrationBadges product={product} />
     <h1 className="big-title">{product.name}</h1>
     <h1 className="integration-header">
       {product.ShortDescription}
