@@ -8,18 +8,20 @@ const Product = ({ logo, ShortDescription, slug, Vendor, name }) => (
     as={`/integration/${slug}`}
   >
     <div className="product-list-item">
-      <Row>
-      <img src={logo} className="vendor-logo"/>
+      <Row className="image-row">
+        <div>
+          <img src={logo} className="vendor-logo"/>
+        </div>
       </Row>
       <Row>
       <small>{Vendor}</small>
       </Row>
       <hr/>
-      <Row>
-      <big>{name}</big>
+      <Row className="title-row">
+      <h2>{name}</h2>
       </Row>
       <Row>
-      <div>{ShortDescription}</div>
+        <div>{ShortDescription}</div>
       </Row>
     </div>
   </Link>
