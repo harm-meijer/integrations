@@ -3,6 +3,9 @@ import Head from 'next/head'
 import Menu from './Menu'
 import Search from './Search'
 import Header from './Header'
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+
 export default function Layout(props) {
   return (
     <React.Fragment>
@@ -23,12 +26,15 @@ export default function Layout(props) {
           crossOrigin="anonymous"
         />
       </Head>
-      <Header
-        Menu={Menu}
-        Search={Search}
-        SubHeader={props.header}
-      />
-      <div id="content">{props.children}</div>
+
+      <Container className="content">
+        <Header
+          Menu={Menu}
+          Search={Search}
+          SubHeader={props.header}
+        />
+        <div id="content">{props.children}</div>
+      </Container>
     </React.Fragment>
   )
 }

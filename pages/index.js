@@ -62,7 +62,7 @@ HomePage.getInitialProps = ({ store }) => {
       .then(([list]) => {
         return {
           title: 'commercetools Integration Marketplace',
-          subTitle: 'Find official third party integrations',
+          subTitle: 'Browse official third party integrations and extensions',
           list,
           query
         }
@@ -70,7 +70,7 @@ HomePage.getInitialProps = ({ store }) => {
   }
   return {
     title: 'commercetools Integration Marketplace',
-    subTitle: 'Find official third party integrations',
+    subTitle: 'Browse official third party integrations and extensions',
     list: [],
     query
   }
