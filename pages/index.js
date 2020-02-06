@@ -21,10 +21,7 @@ function HomePage(props) {
     >
       {props.list.map(([query, title, subTitle]) => (
         <React.Fragment key={title}>
-          <h1 className="integration-header">{title}</h1>
-          <h3 className="integration-header small">
-            {subTitle}
-          </h3>
+          <h3 className="integration-header">{subTitle}</h3>
           <ProductList query={query} columns={4} />
         </React.Fragment>
       ))}
@@ -53,16 +50,18 @@ HomePage.getInitialProps = ({ store }) => {
             c.description
           ])
         return Promise.all(
-          [list],
-          ...list.map(([query]) =>
-            needProducts(store, query)
+          [list].concat(
+            list.map(([query]) =>
+              needProducts(store, query)
+            )
           )
         )
       })
       .then(([list]) => {
         return {
           title: 'commercetools Integration Marketplace',
-          subTitle: 'Browse official third party integrations and extensions',
+          subTitle:
+            'Browse official third party integrations and extensions',
           list,
           query
         }
@@ -70,7 +69,8 @@ HomePage.getInitialProps = ({ store }) => {
   }
   return {
     title: 'commercetools Integration Marketplace',
-    subTitle: 'Browse official third party integrations and extensions',
+    subTitle:
+      'Browse official third party integrations and extensions',
     list: [],
     query
   }

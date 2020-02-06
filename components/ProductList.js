@@ -19,23 +19,25 @@ const List = ({
 }) => {
   return products.length ? (
     <Container className="product-list">
-      {path && total > 1 && (
-        <Row>
-          <Col>
-            {[...new Array(total)]
-              .map((_, index) => index + 1)
-              .map(page => (
-                <Link
-                  href={`/${path}?${queryKey}=${query[queryKey]}&page=${page}`}
-                  as={`/${path}/${query[queryKey]}/${page}`}
-                  key={page}
-                >
-                  <a>{page} </a>
-                </Link>
-              ))}
-          </Col>
-        </Row>
-      )}
+      {false &&
+      path &&
+      total > 1 && ( //paging, is disabled (need styling)
+          <Row>
+            <Col>
+              {[...new Array(total)]
+                .map((_, index) => index + 1)
+                .map(page => (
+                  <Link
+                    href={`/${path}?${queryKey}=${query[queryKey]}&page=${page}`}
+                    as={`/${path}/${query[queryKey]}/${page}`}
+                    key={page}
+                  >
+                    <a>{page} </a>
+                  </Link>
+                ))}
+            </Col>
+          </Row>
+        )}
       {products.map((productRow, index) => (
         <Row key={index}>
           {productRow.map(product => (
