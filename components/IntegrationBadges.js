@@ -1,14 +1,14 @@
 import React, {useMemo} from 'react'
 import {Badge} from 'react-bootstrap';
 
-const IntegrationTypes = ({types}) => (
+const IntegrationBadges = ({types}) => (
   <div>
     {types.map(type => (
       <Badge variant="light" key={type} style={{marginRight: '5px'}}>{type}</Badge>
     ))}
   </div>
 )
-export default function IntegrationTypesContainer({
+export default function IntegrationBadgesContainer({
                                                     product
                                                   }) {
   return useMemo(() => {
@@ -16,14 +16,12 @@ export default function IntegrationTypesContainer({
       ? []
       : [...product.categories]
         .map(c => {
-            console.log(c);
-
-            // TODO: Properly ignore the non category ones
-
-            return c.name
+          if (c.parent) {
+              return c.name
+            }
           }
         )
         .sort((a, b) => a.localeCompare(b))
-    return types.length ? IntegrationTypes({types}) : ''
+    return types.length ? IntegrationBadges({types}) : ''
   }, [product])
 }
