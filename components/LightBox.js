@@ -8,9 +8,9 @@ const LightBox = ({
   movePrevious,
   moveNext,
   close,
-  isOpen
+  open
 }) =>
-  isOpen && (
+  open && (
     <Lightbox
       mainSrc={current}
       nextSrc={next}
@@ -21,9 +21,13 @@ const LightBox = ({
     />
   )
 
-export default ({ images }) => {
-  const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [isOpen, setIsOpen] = React.useState(true)
+export default ({
+  images,
+  open,
+  setOpen,
+  index,
+  setIndex
+}) => {
   const max = images.length
   const calcMove = React.useCallback(
     direction => val => {
@@ -33,24 +37,23 @@ export default ({ images }) => {
     [max]
   )
   const movePrevious = React.useCallback(
-    () => setCurrentIndex(calcMove(-1)),
-    [calcMove]
+    () => setIndex(calcMove(-1)),
+    [calcMove, setIndex]
   )
   const moveNext = React.useCallback(
-    () => setCurrentIndex(calcMove(1)),
-    [calcMove]
+    () => setIndex(calcMove(1)),
+    [calcMove, setIndex]
   )
-  const close = React.useCallback(
-    () => setIsOpen(false),
-    []
-  )
+  const close = React.useCallback(() => setOpen(false), [
+    setOpen
+  ])
   return LightBox({
-    previous: images[calcMove(-1)(currentIndex)],
-    current: images[currentIndex],
-    next: images[calcMove(1)(currentIndex)],
+    previous: images[calcMove(-1)(index)],
+    current: images[index],
+    next: images[calcMove(1)(index)],
     movePrevious,
     moveNext,
     close,
-    isOpen
+    open
   })
 }

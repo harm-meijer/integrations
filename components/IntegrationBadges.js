@@ -8,7 +8,7 @@ const IntegrationBadges = ({ categories }) => (
     {categories.map(category => (
       <Badge
         variant="light"
-        key={category.id}
+        key={category}
         style={{ marginRight: '5px' }}
       >
         {category}
