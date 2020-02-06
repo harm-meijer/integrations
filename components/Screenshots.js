@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import LightBox from './LightBox'
 
 const Screenshots = images => (
   <React.Fragment>
@@ -28,6 +29,7 @@ const Screenshots = images => (
           </Row>
         ))}
       </Container>
+      <LightBox images={images.flat()} current={0} />
     </div>
   </React.Fragment>
 )
