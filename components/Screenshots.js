@@ -1,7 +1,19 @@
-import React, { useMemo } from 'react'
+import React, {
+  useMemo,
+  useState,
+  useCallback
+} from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import LightBox from './LightBox'
 
-const Screenshots = images => (
+const Screenshots = ({
+  images,
+  open,
+  setOpen,
+  openLightBox,
+  index,
+  setIndex
+}) => (
   <React.Fragment>
     <div>
       <h1 className="integration-header">
@@ -10,12 +22,11 @@ const Screenshots = images => (
       <Container className="product-list">
         {images.map((row, index) => (
           <Row key={index}>
-            {row.map(href => (
+            {row.map((href, index) => (
               <Col lg="6" key={href}>
                 <a
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={e => openLightBox(e, index)}
                   key={href}
                 >
                   <img
@@ -28,10 +39,24 @@ const Screenshots = images => (
           </Row>
         ))}
       </Container>
+      <LightBox
+        images={images.flat()}
+        open={open}
+        setOpen={setOpen}
+        index={index}
+        setIndex={setIndex}
+      />
     </div>
   </React.Fragment>
 )
 export default function ScreenshotsContainer({ product }) {
+  const [open, setOpen] = useState(false)
+  const [index, setIndex] = useState(0)
+  const openLightBox = useCallback((e, index) => {
+    e.preventDefault()
+    setIndex(index)
+    setOpen(true)
+  }, [])
   return useMemo(() => {
     const images = !product
       ? []
@@ -44,6 +69,15 @@ export default function ScreenshotsContainer({ product }) {
             return result
           }, [])
           .filter(r => r.length)
-    return !images.length ? '' : Screenshots(images)
-  }, [product])
+    return !images.length
+      ? ''
+      : Screenshots({
+          images,
+          open,
+          setOpen,
+          openLightBox,
+          index,
+          setIndex
+        })
+  }, [index, open, openLightBox, product])
 }
