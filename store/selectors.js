@@ -135,6 +135,28 @@ export const selectCategoriesNested = createSelector(
     return rootCategories
   }
 )
+export const selectMenuCategories = createSelector(
+  selectCategoriesNested,
+  x => ({}),
+  nestedCategories => {
+    const reduceChildren = (result, item) =>
+      !item.subCategories.length
+        ? result.concat(item)
+        : result.concat(
+            item.subCategories.reduce(
+              reduceChildren,
+              result.concat(item)
+            )
+          )
+    return nestedCategories
+      .reduce(reduceChildren, [])
+      .reduce(
+        (result, category) =>
+          result.set(category.id, category),
+        new Map()
+      )
+  }
+)
 export const selectCategoryBySlug = createSelector(
   selectCategoriesData,
   (_, slug) => slug,

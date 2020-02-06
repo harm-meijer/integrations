@@ -1,27 +1,31 @@
-import React, {useMemo} from 'react'
-import {Badge} from 'react-bootstrap';
+import React, { useMemo } from 'react'
+import { Badge } from 'react-bootstrap'
+import { selectMenuCategories } from '../store/selectors'
+import { useSelector } from 'react-redux'
 
-const IntegrationBadges = ({types}) => (
+const IntegrationBadges = ({ categories }) => (
   <div>
-    {types.map(type => (
-      <Badge variant="light" key={type} style={{marginRight: '5px'}}>{type}</Badge>
+    {categories.map(category => (
+      <Badge
+        variant="light"
+        key={category.id}
+        style={{ marginRight: '5px' }}
+      >
+        {category}
+      </Badge>
     ))}
   </div>
 )
 export default function IntegrationBadgesContainer({
-                                                    product
-                                                  }) {
+  product
+}) {
+  const menuCategories = useSelector(selectMenuCategories)
   return useMemo(() => {
-    const types = !product
-      ? []
-      : [...product.categories]
-        .map(c => {
-          if (c.parent) {
-              return c.name
-            }
-          }
-        )
-        .sort((a, b) => a.localeCompare(b))
-    return types.length ? IntegrationBadges({types}) : ''
-  }, [product])
+    const categories = (product?.categories || [])
+      .filter(c => menuCategories.get(c.id))
+      .map(c => c.name)
+    return categories.length
+      ? IntegrationBadges({ categories })
+      : ''
+  }, [menuCategories, product])
 }
