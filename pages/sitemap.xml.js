@@ -1,6 +1,6 @@
 import { needCategories, withPage } from '../helpers'
 import {
-  selectCategoriesNested,
+  selectMenuCategoriesNested,
   selectProductsList
 } from '../store/selectors'
 import { loadProducts } from '../store/actions'
@@ -11,7 +11,7 @@ Sitemap.getInitialProps = ({ res, store }) => {
     res.setHeader('Content-Type', 'text/xml')
     return needCategories(store)
       .then(() =>
-        selectCategoriesNested(store.getState()).map(
+        selectMenuCategoriesNested(store.getState()).map(
           category => [
             category,
             withPage({

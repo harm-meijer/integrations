@@ -5,7 +5,7 @@ import React, {
 } from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
-import { selectCategoriesNested } from '../store/selectors'
+import { selectMenuCategoriesNested } from '../store/selectors'
 import { useCategories } from '../hooks'
 import Nav from 'react-bootstrap/Nav'
 import { NavDropdown } from 'react-bootstrap'
@@ -87,7 +87,7 @@ const MenuLinkContainer = ({ category, level = 0 }) => {
 const MenuContainer = props => {
   const [subCategories, setSubCategories] = useState([])
   useCategories()
-  const categories = useSelector(selectCategoriesNested)
+  const categories = useSelector(selectMenuCategoriesNested)
   const newProps = useMemo(
     () => ({
       ...props,
