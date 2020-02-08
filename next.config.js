@@ -14,10 +14,8 @@ module.exports = withSass({
       process.env.NODE_ENV === 'production'
         ? 'https://commercetools-integrations.herokuapp.com/api'
         : 'http://localhost:8080/api',
-    LOCAL_API:
-      process.env.NODE_ENV === 'production'
-        ? 'https://commercetools-integrations.herokuapp.com/api'
-        : 'http://localhost:8080/api',
+    LOCAL_API: `http://localhost:${process.env.PORT ||
+      8080}/api`,
     SITE:
       process.env.NODE_ENV === 'production'
         ? 'https://commercetools-integrations.herokuapp.com/api/'

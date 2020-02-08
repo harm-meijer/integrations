@@ -59,7 +59,7 @@ app.prepare().then(() => {
     return handle(req, res)
   })
 
-  server.listen(8080, err => {
+  server.listen(process.env.PORT || 8080, err => {
     if (err) throw err
     console.log('> Read on http://localhost:8080')
   })
