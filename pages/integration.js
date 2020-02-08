@@ -25,8 +25,7 @@ function ProductDetailPage({
     </Layout>
   )
 }
-ProductDetailPage.getInitialProps = ({ store }) => {
-  const query = selectQuery(store.getState())
+ProductDetailPage.getInitialProps = ({ store, query }) => {
   if (process.env.SERVER_HYDRATE) {
     return Promise.all([
       needCategories(store, query),

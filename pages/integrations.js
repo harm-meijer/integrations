@@ -25,8 +25,7 @@ function ProductsOfCategory(props) {
     </Layout>
   )
 }
-ProductsOfCategory.getInitialProps = ({ store }) => {
-  const query = selectQuery(store.getState())
+ProductsOfCategory.getInitialProps = ({ store, query }) => {
   if (process.env.SERVER_HYDRATE) {
     return Promise.all([
       needCategories(store, query),

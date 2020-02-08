@@ -23,8 +23,7 @@ function ProductsSearch(props) {
     </Layout>
   )
 }
-ProductsSearch.getInitialProps = ({ store }) => {
-  const query = selectQuery(store.getState())
+ProductsSearch.getInitialProps = ({ store, query }) => {
   if (process.env.SERVER_HYDRATE) {
     return Promise.all([
       needCategories(store, query),

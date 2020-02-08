@@ -5,20 +5,31 @@ import { Provider } from 'react-redux'
 import App from 'next/app'
 import withRedux from 'next-redux-wrapper'
 import { initStore, STORE_KEY } from '../store/initStore.js'
-import { setQuery } from '../store/actions'
+import { setQuery, setPageLoading } from '../store/actions'
 import { withPage } from '../helpers'
 
 export default withRedux(initStore, {
   storeKey: STORE_KEY
 })(
   class MyApp extends App {
+    state = {}
     static async getInitialProps({ Component, ctx }) {
-      ctx.store.dispatch(setQuery(withPage(ctx.query)))
+      ctx.store.dispatch(setPageLoading(true))
       return {
         pageProps: Component.getInitialProps
-          ? await Component.getInitialProps(ctx)
+          ? await Component.getInitialProps({
+              ...ctx,
+              query: withPage(ctx.query)
+            }).then(props => {
+              ctx.store.dispatch(setPageLoading(false))
+              return props
+            })
           : {}
       }
+    }
+    static getDerivedStateFromProps(props) {
+      props.store.dispatch(setQuery(props.pageProps.query))
+      return null
     }
 
     render() {

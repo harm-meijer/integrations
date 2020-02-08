@@ -13,6 +13,7 @@ export const CATEGORIES_LOADING_ERROR =
 export const CATEGORIES_LOADING_SUCCEEDED =
   'CATEGORIES_LOADING_SUCCEEDED'
 export const SET_QUERY = 'SET_QUERY'
+export const SET_PAGE_LOADING = 'SET_PAGE_LOADING'
 
 export const loadProducts = query => (
   dispatch,
@@ -52,4 +53,8 @@ export const loadCategories = () => (
 export const setQuery = query => ({
   type: SET_QUERY,
   payload: query
+})
+export const setPageLoading = (loading = false) => ({
+  type: SET_PAGE_LOADING,
+  payload: loading
 })

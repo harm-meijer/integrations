@@ -6,7 +6,8 @@ import {
   CATEGORIES_LOADING,
   PRODUCTS_LOADING_SUCCEEDED,
   CATEGORIES_LOADING_SUCCEEDED,
-  SET_QUERY
+  SET_QUERY,
+  SET_PAGE_LOADING
 } from './actions'
 import { queryAsKey } from '../helpers'
 
@@ -18,7 +19,8 @@ const initState = {
     requested: false,
     data: {}
   },
-  query: {}
+  query: {},
+  loading: false
 }
 const reduceById = (items, item) => {
   items[item.id] = item
@@ -27,6 +29,9 @@ const reduceById = (items, item) => {
 
 const rootReducer = (state = initState, action) => {
   const { type, payload } = action
+  if (type === SET_PAGE_LOADING) {
+    return { ...state, loading: payload }
+  }
   if (type === SET_QUERY) {
     return { ...state, query: payload }
   }

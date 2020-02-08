@@ -28,8 +28,7 @@ function HomePage(props) {
     </Layout>
   )
 }
-HomePage.getInitialProps = ({ store }) => {
-  const query = selectQuery(store.getState())
+HomePage.getInitialProps = ({ store, query }) => {
   if (process.env.SERVER_HYDRATE) {
     return needCategories(store, query)
       .then(() => {

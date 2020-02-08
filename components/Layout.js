@@ -3,10 +3,10 @@ import Head from 'next/head'
 import Menu from './Menu'
 import Search from './Search'
 import Header from './Header'
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import Container from 'react-bootstrap/Container'
+import { useSelector } from 'react-redux'
 
-export default function Layout(props) {
+function Layout(props) {
   return (
     <React.Fragment>
       <Head>
@@ -33,8 +33,19 @@ export default function Layout(props) {
           Search={Search}
           SubHeader={props.header}
         />
-        <div id="content">{props.children}</div>
+        {props.loading ? (
+          <div id="content">Loading...</div>
+        ) : (
+          <div id="content">{props.children}</div>
+        )}
       </Container>
     </React.Fragment>
   )
+}
+export default function LayoutContainer(props) {
+  const loading = useSelector(s => s.loading)
+  return Layout({
+    ...props,
+    loading
+  })
 }
