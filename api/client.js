@@ -8,6 +8,7 @@ import { LANGUAGE, API, LOCAL_API } from '../constants'
 const API_URL = process.browser ? API : LOCAL_API
 const later = time => new Promise(r => setTimeout(r, time))
 const fetchJson = (...args) =>
+  //@todo remove delay
   later(2000)
     .then(() => fetch(...args))
     .then(result => result.json())
