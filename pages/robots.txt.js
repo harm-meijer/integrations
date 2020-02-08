@@ -1,9 +1,11 @@
+import { SITE } from '../constants'
+
 function Robots() {}
 Robots.getInitialProps = ({ res }) => {
   res.setHeader('Content-Type', 'text/plain')
   res.write(`User-agent: *
   Disallow:
-  Sitemap: ${process.env.SITE}sitemap.xml`)
+  Sitemap: ${SITE}sitemap.xml`)
   res.end()
 }
 

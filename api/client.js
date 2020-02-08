@@ -3,14 +3,14 @@ import { selectCategoriesData } from '../store/selectors'
 import { loadCategories } from '../store/actions'
 import { get, toUrl, withPage } from '../helpers'
 import { group, makeConfig } from './shared'
-import { LANGUAGE } from '../constants'
+import { LANGUAGE, API, LOCAL_API } from '../constants'
 
-const API_URL = process.browser
-  ? process.env.API
-  : process.env.LOCAL_API
-
+const API_URL = process.browser ? API : LOCAL_API
+const later = time => new Promise(r => setTimeout(r, time))
 const fetchJson = (...args) =>
-  fetch(...args).then(result => result.json())
+  later(2000)
+    .then(() => fetch(...args))
+    .then(result => result.json())
 const cache = process.browser ? new Map() : global.cache
 const groupFetchJson = group(fetchJson, cache)
 

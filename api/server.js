@@ -1,19 +1,24 @@
 import fetch from 'isomorphic-unfetch'
-import secret from '../secret'
 import { group, makeConfig } from './shared'
+require('dotenv').config()
 
-const PROJECT_KEY = secret.PROJECT_KEY
-const CLIENT_ID = secret.CLIENT_ID
-const CLIENT_SECRET = secret.CLIENT_SECRET
-const AUTH_URL = secret.AUTH_URL
-const API_URL = secret.API_URL
-const SCOPES = secret.SCOPES
+const PROJECT_KEY = process.env.PROJECT_KEY
+const CLIENT_SECRET = process.env.CLIENT_SECRET
+const CLIENT_ID = process.env.CLIENT_ID
+const AUTH_URL = process.env.AUTH_URL
+const API_URL = process.env.API_URL
+const SCOPES = process.env.SCOPES
 
 console.log('Using config:')
 console.log(
   JSON.stringify(
     {
-      ...secret,
+      PROJECT_KEY,
+      CLIENT_SECRET,
+      CLIENT_ID,
+      AUTH_URL,
+      API_URL,
+      SCOPES,
       NODE_ENV: process.env.NODE_ENV,
       PORT: process.env.PORT
     },

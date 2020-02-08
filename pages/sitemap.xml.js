@@ -4,6 +4,7 @@ import {
   selectProductsList
 } from '../store/selectors'
 import { loadProducts } from '../store/actions'
+import { SITE } from '../constants'
 
 function Sitemap() {}
 Sitemap.getInitialProps = ({ res, store }) => {
@@ -49,7 +50,7 @@ Sitemap.getInitialProps = ({ res, store }) => {
             ([category, lastMod]) =>
               '<url>' +
               '<loc>' +
-              process.env.SITE +
+              SITE +
               category.slug +
               '</loc>' +
               (lastMod
