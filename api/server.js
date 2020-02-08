@@ -14,7 +14,8 @@ console.log(
   JSON.stringify(
     {
       ...secret,
-      NODE_ENV: process.env.NODE_ENV
+      NODE_ENV: process.env.NODE_ENV,
+      PORT: process.env.PORT
     },
     undefined,
     2
