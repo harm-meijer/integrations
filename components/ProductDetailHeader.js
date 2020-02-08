@@ -1,14 +1,16 @@
 import React, { useMemo } from 'react'
 import {
   selectQuery,
-  selectProductsList
+  selectProductsList,
+  useResults as guardResults
 } from '../store/selectors'
 import { useSelector } from 'react-redux'
 import { useProducts } from '../hooks'
 import Links from './Links'
-import IntegrationBadges from "./IntegrationBadges";
+import IntegrationBadges from './IntegrationBadges'
+import withResult from './withResult'
 
-const ProductDetailHeader = product => (
+const ProductDetailHeader = ({ product }) => (
   <div className="integration">
     <IntegrationBadges product={product} />
     <h1 className="big-title">{product.name}</h1>
@@ -18,15 +20,25 @@ const ProductDetailHeader = product => (
     <Links product={product} />
   </div>
 )
+const ResultComponent = withResult(
+  ProductDetailHeader,
+  () => ''
+)
+
 export default function ProductDetailHeaderContainer() {
   const query = useSelector(selectQuery)
   useProducts(query)
-  const product = useSelector(state =>
+  const productResult = useSelector(state =>
     selectProductsList(state, query)
-  )[0]
-
-  return useMemo(
-    () => (product ? ProductDetailHeader(product) : ''),
-    [product]
   )
+
+  return useMemo(() => {
+    const result = guardResults([productResult])(([p]) => ({
+      product: p[0]
+    }))
+    return ResultComponent({
+      ...result.value,
+      ...result
+    })
+  }, [productResult])
 }
