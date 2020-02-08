@@ -5,7 +5,9 @@ import Search from './Search'
 import Header from './Header'
 import Container from 'react-bootstrap/Container'
 import { useSelector } from 'react-redux'
+import IndexHeaderHeader from './IndexHeader'
 
+const LoadingHeader = IndexHeaderHeader({})
 function Layout(props) {
   return (
     <React.Fragment>
@@ -31,7 +33,9 @@ function Layout(props) {
         <Header
           Menu={Menu}
           Search={Search}
-          SubHeader={props.header}
+          SubHeader={
+            props.loading ? LoadingHeader : props.header
+          }
         />
         {props.loading ? (
           <div id="content">Loading...</div>
