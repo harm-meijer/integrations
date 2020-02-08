@@ -62,7 +62,6 @@ const createStorage = storage => {
       return result === undefined ? null : result
     },
     setItem: (key, value) => {
-      console.log('setting token', key, value)
       global.token = value
       storage.set(key, value)
       return value

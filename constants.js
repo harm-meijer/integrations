@@ -1,8 +1,3 @@
-console.log(
-  'is this working?',
-  process.env.NODE_ENV,
-  process.env.PORT
-)
 export const LANGUAGE = process.env.LANGUAGE
 export const API =
   process.env.NODE_ENV === 'production'
