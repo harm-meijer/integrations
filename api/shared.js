@@ -1,7 +1,5 @@
-export const group = (fn, groups) => {
-  if (!groups) {
-    throw new Error('need to pass groups')
-  }
+const cache = process.browser ? new Map() : global.cache
+export const group = (fn, groups = cache) => {
   return (...args) => {
     const key = JSON.stringify(args)
     const existing = groups.get(key)

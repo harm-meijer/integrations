@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "babel-node --config-file ./.babel.server server.js"
+    "start": "babel-node --config-file ./.babel.server server.js",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Harm Meijer",
   "license": "ISC",
