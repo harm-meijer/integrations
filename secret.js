@@ -4,6 +4,6 @@ const secret = {
   CLIENT_ID:process.env.CLIENT_ID,
   AUTH_URL:process.env.AUTH_URL,
   API_URL:process.env.API_URL,
-  SCOPES:process.env.SCOPE,
+  SCOPES:process.env.SCOPES,
 };
 module.exports = secret;
