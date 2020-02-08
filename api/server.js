@@ -9,8 +9,17 @@ const AUTH_URL = secret.AUTH_URL
 const API_URL = secret.API_URL
 const SCOPES = secret.SCOPES
 
-console.log('Using credentials:')
-console.log(JSON.stringify(secret, undefined, 2))
+console.log('Using config:')
+console.log(
+  JSON.stringify(
+    {
+      ...secret,
+      NODE_ENV: process.env.NODE_ENV
+    },
+    undefined,
+    2
+  )
+)
 
 const toUrl = (base, query) => {
   const queryParams = Object.entries(query)

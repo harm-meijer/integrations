@@ -10,8 +10,17 @@ module.exports = withSass({
     ],
     // set false when debugging
     SERVER_HYDRATE: true,
-    API: 'http://localhost:8080/api',
-    LOCAL_API: 'http://localhost:8080/api',
-    SITE: 'http://localhost:8080/'
+    API:
+      process.env.NODE_ENV === 'production'
+        ? 'https://commercetools-integrations.herokuapp.com/api'
+        : 'http://localhost:8080/api',
+    LOCAL_API:
+      process.env.NODE_ENV === 'production'
+        ? 'https://commercetools-integrations.herokuapp.com/api'
+        : 'http://localhost:8080/api',
+    SITE:
+      process.env.NODE_ENV === 'production'
+        ? 'https://commercetools-integrations.herokuapp.com/api/'
+        : 'http://localhost:8080/api/'
   }
 })
