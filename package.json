@@ -4,7 +4,6 @@
   "description": "commercetools integration services",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
     "build": "next build",
     "start": "babel-node --config-file ./.babel.server server.js",
     "heroku-postbuild": "npm run build"
@@ -27,12 +26,12 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
-  },
-  "devDependencies": {
+    "reselect": "^4.0.0",
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-env": "^7.8.3"
+  },
+  "devDependencies": {
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.17.0",
