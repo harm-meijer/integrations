@@ -5,7 +5,8 @@ import ProductList from '../components/ProductList'
 import {
   selectQuery,
   selectCategoryBySlug,
-  selectProductsList
+  selectProductsList,
+  useResults
 } from '../store/selectors'
 import IntegrationsHeader from '../components/IntegrationsHeader'
 
@@ -37,10 +38,11 @@ ProductsOfCategory.getInitialProps = ({ store }) => {
       )
       const title = category?.name
       const subTitle = category?.description
-      const products = selectProductsList(
-        store.getState(),
-        query
-      )
+      //@todo: assuming nothing goes wrong, should
+      //  wrap layout in something that shows only errors
+      const { value: products } = useResults([
+        selectProductsList(store.getState(), query)
+      ])(([products]) => products)
       return {
         query,
         title,

@@ -3,7 +3,8 @@ import Layout from '../components/Layout'
 import { needProducts, needCategories } from '../helpers'
 import {
   selectQuery,
-  selectProductBySlug
+  selectProductsList,
+  useResults
 } from '../store/selectors'
 import ProductDetail from '../components/ProductDetail'
 import ProductDetailHeaderContainer from '../components/ProductDetailHeader'
@@ -31,10 +32,11 @@ ProductDetailPage.getInitialProps = ({ store }) => {
       needCategories(store, query),
       needProducts(store, query)
     ]).then(() => {
-      const product = selectProductBySlug(
-        store.getState(),
-        query.slug
-      )
+      //@todo: could be an error as well, wrap Layout
+      //  in something that shows error only
+      const { value: product } = useResults([
+        selectProductsList(store.getState(), query)
+      ])(([p]) => p[0])
       return {
         query,
         productName: product.name,

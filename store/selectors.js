@@ -6,6 +6,10 @@ const NOT_REQUESTED = {
   requested: false,
   loading: false
 }
+const AVAILABLE = {
+  requested: true,
+  loading: false
+}
 export const selectCategories = state => state.categories
 export const selectProducts = state => state.products
 export const selectCompareProducts = state =>
@@ -87,29 +91,60 @@ const asProduct = cat => product => {
     }, {})
   }
 }
+const isResult = value =>
+  ['loading', 'requested'].reduce(
+    // eslint-disable-next-line no-prototype-builtins
+    (result, key) => result && value.hasOwnProperty(key),
+    true
+  )
+const asResult = (value = {}) =>
+  isResult(value)
+    ? value
+    : {
+        ...AVAILABLE,
+        value
+      }
+// skips calling function if any of the values is loading or has error
+export const useResults = values => fn => {
+  //@todo: add error as well
+  const resultValues = values.map(asResult)
+  return resultValues.reduce(
+    (available, result) =>
+      available && !result.loading && result.requested,
+    true
+  )
+    ? asResult(fn(resultValues.map(result => result.value)))
+    : resultValues.find(result => result.loading)
+}
 
 export const selectProductsList = createSelector(
   selectProductPage,
-  selectCategoriesData,
+  selectCategoriesData, //@todo: categoriesData should return result
   selectProductsData,
-  ({ loading, requested, ids }, categories, data) => {
-    //@todo: need handle error as well
-    return !loading && requested
-      ? ids.map(id => data[id]).map(asProduct(categories))
-      : []
+  (productsResult, categories, data) => {
+    return useResults([
+      productsResult,
+      categories
+    ])(([productPage, categories]) =>
+      productPage.ids
+        .map(id => data[id])
+        .map(asProduct(categories))
+    )
   }
 )
 export const selectProductColumns = createSelector(
   selectProductsList,
   (a, b, colums) => colums,
-  (products, columns) =>
-    products.reduce((result, product, index) => {
-      if (index % columns === 0) {
-        result.push([])
-      }
-      result[result.length - 1].push(product)
-      return result
-    }, [])
+  (productsResult, columns) =>
+    useResults([productsResult])(([products]) =>
+      products.reduce((result, product, index) => {
+        if (index % columns === 0) {
+          result.push([])
+        }
+        result[result.length - 1].push(product)
+        return result
+      }, [])
+    )
 )
 export const selectAllCategories = createSelector(
   selectCategoriesData,
@@ -195,16 +230,5 @@ export const selectCategoryBySlug = createSelector(
         category.slug[process.env.LANGUAGE] === slug
     )
     return category && asCategory(category)
-  }
-)
-export const selectProductBySlug = createSelector(
-  selectProductsData,
-  selectCategoriesData,
-  (_, slug) => slug,
-  (data, categories, slug) => {
-    const product = Object.values(data).find(
-      product => product.slug[process.env.LANGUAGE] === slug
-    )
-    return product && asProduct(categories)(product)
   }
 )

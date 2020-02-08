@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux'
 import {
   selectProductPage,
   selectQuery,
-  selectProductColumns
+  selectProductColumns,
+  useResults
 } from '../store/selectors'
 import Link from 'next/link'
 import { Container, Row, Col } from 'react-bootstrap'
 import Product from './Product'
+import withResult from './withResult'
 const List = ({
   products,
   query,
@@ -56,6 +58,7 @@ const List = ({
     </Container>
   )
 }
+const ResultComponent = withResult(List)
 const ProductListContainer = ({
   query,
   path,
@@ -67,18 +70,24 @@ const ProductListContainer = ({
   const queryFromStore = useSelector(selectQuery)
   const productQuery = query || queryFromStore
   useProducts(productQuery)
-  const products = useSelector(state =>
+  const productsResult = useSelector(state =>
     selectProductColumns(state, productQuery, columns)
   )
-  const productPage = useSelector(state =>
+  const productPageResult = useSelector(state =>
     selectProductPage(state, productQuery)
   )
-  const total = Number(productPage.total || 0)
+  const result = useResults([
+    productsResult,
+    productPageResult
+  ])(([products, productPage]) => ({
+    products,
+    total: Number(productPage.total || 0)
+  }))
   return useMemo(
     () =>
-      List({
-        products,
-        total,
+      ResultComponent({
+        ...result.value,
+        ...result,
         query: productQuery,
         path,
         queryKey,
@@ -87,8 +96,7 @@ const ProductListContainer = ({
         columns
       }),
     [
-      products,
-      total,
+      result,
       productQuery,
       path,
       queryKey,

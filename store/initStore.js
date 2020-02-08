@@ -72,8 +72,7 @@ const rootReducer = (state = initState, action) => {
         [key]: {
           ...state.products[key],
           [page]: {
-            total,
-            ids: results.map(r => r.id),
+            value: { total, ids: results.map(r => r.id) },
             loading: false,
             requested: true
           }

@@ -4,7 +4,8 @@ import { needProducts, needCategories } from '../helpers'
 import ProductList from '../components/ProductList'
 import {
   selectQuery,
-  selectProductsList
+  selectProductsList,
+  useResults
 } from '../store/selectors'
 import IndexHeaderHeader from '../components/IndexHeader'
 
@@ -29,10 +30,11 @@ ProductsSearch.getInitialProps = ({ store }) => {
       needCategories(store, query),
       needProducts(store, query)
     ]).then(() => {
-      const products = selectProductsList(
-        store.getState(),
-        query
-      )
+      //@todo: assuming nothing goes wrong, should
+      //  wrap layout in something that shows only error
+      const { value: products } = useResults([
+        selectProductsList(store.getState(), query)
+      ])(([products]) => products)
       return {
         query,
         title: `Search results for: ${query.q}`,
