@@ -56,6 +56,7 @@ const createStorage = storage => {
       return result === undefined ? null : result
     },
     setItem: (key, value) => {
+      console.log('setting token', key, value)
       global.token = value
       storage.set(key, value)
       return value
@@ -87,10 +88,18 @@ const getToken = (refresh = false) => {
           }
         )
           .then(r => r.json())
-          .then(token => {
-            storage.setItem('token', JSON.stringify(token))
-            return token
-          })
+          .then(
+            token => {
+              storage.setItem(
+                'token',
+                JSON.stringify(token)
+              )
+              return token
+            },
+            err =>
+              console.log('error:', err) ||
+              Promise.reject(err)
+          )
 }
 
 const withToken = (() => {
