@@ -1,8 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
-import Row from "react-bootstrap/Row";
+import Row from 'react-bootstrap/Row'
 
-const Product = ({ logo, ShortDescription, slug, Vendor, name }) => (
+const Product = ({
+  logo,
+  ShortDescription,
+  slug,
+  Vendor,
+  name
+}) => (
   <Link
     href={`/integration?slug=${slug}`}
     as={`/integration/${slug}`}
@@ -10,15 +16,15 @@ const Product = ({ logo, ShortDescription, slug, Vendor, name }) => (
     <div className="product-list-item">
       <Row className="image-row">
         <div>
-          <img src={logo} className="vendor-logo"/>
+          <img src={logo} className="vendor-logo" />
         </div>
       </Row>
       <Row>
-      <small>{Vendor}</small>
+        <small>{Vendor}</small>
       </Row>
-      <hr/>
+      <hr />
       <Row className="title-row">
-      <h2>{name}</h2>
+        <h2>{name}</h2>
       </Row>
       <Row>
         <div>{ShortDescription}</div>
