@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { needProducts, needCategories } from '../helpers'
 import {
-  selectQuery,
   selectProductsList,
   useResults
 } from '../store/selectors'

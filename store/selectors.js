@@ -114,7 +114,10 @@ export const useResults = values => fn => {
     true
   )
     ? asResult(fn(resultValues.map(result => result.value)))
-    : resultValues.find(result => result.loading)
+    : resultValues.find(
+        //@todo when error is implemented it has priority
+        result => result.loading || !result.loading
+      )
 }
 
 export const selectProductsList = createSelector(

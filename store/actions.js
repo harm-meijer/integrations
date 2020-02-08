@@ -1,6 +1,9 @@
 import { getProducts, getCategories } from '../api/client'
-import { withPage } from '../helpers'
-import { selectCategories } from './selectors'
+import {
+  selectCategories,
+  selectProductPage,
+  useResults
+} from './selectors'
 
 export const PRODUCTS_LOADING = 'PRODUCTS_LOADING'
 export const PRODUCTS_LOADING_ERROR =
@@ -19,7 +22,13 @@ export const loadProducts = query => (
   dispatch,
   getState
 ) => {
-  query = withPage(query)
+  const { value } = useResults([
+    selectProductPage(getState(), query)
+  ])(() => true)
+  if (value && process.browser) {
+    //data is already here, do not request again
+    return Promise.resolve()
+  }
   dispatch({ type: PRODUCTS_LOADING, payload: query })
   return getProducts(query, getState, dispatch).then(
     ({ results, total, limit }) => {
