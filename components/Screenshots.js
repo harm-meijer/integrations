@@ -1,3 +1,4 @@
+import 'core-js'
 import React, {
   useMemo,
   useState,
@@ -5,7 +6,6 @@ import React, {
 } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import LightBox from './LightBox'
-
 const Screenshots = ({
   images,
   open,
@@ -40,7 +40,7 @@ const Screenshots = ({
         ))}
       </Container>
       <LightBox
-        images={[].concat(...images)}
+        images={images.flat()}
         open={open}
         setOpen={setOpen}
         index={index}
