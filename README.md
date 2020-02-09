@@ -1,5 +1,7 @@
 # Integrations
 
+Example can [viewed on heroku](https://commercetools-integrations.herokuapp.com/)
+
 ## Setting credentials
 
 Create a file called .env in the root directory of the project with the following content:

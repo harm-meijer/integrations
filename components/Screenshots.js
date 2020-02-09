@@ -40,7 +40,7 @@ const Screenshots = ({
         ))}
       </Container>
       <LightBox
-        images={images.flat()}
+        images={[].concat(...images)}
         open={open}
         setOpen={setOpen}
         index={index}
