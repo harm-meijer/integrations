@@ -30,8 +30,8 @@ export const loadProducts = query => (
     return Promise.resolve()
   }
   dispatch({ type: PRODUCTS_LOADING, payload: query })
-  return getProducts(query, getState, dispatch).then(
-    ({ results, total, limit }) => {
+  return getProducts(query, getState, dispatch)
+    .then(({ results, total, limit }) => {
       return dispatch({
         type: PRODUCTS_LOADING_SUCCEEDED,
         payload: {
@@ -40,8 +40,15 @@ export const loadProducts = query => (
           total: Math.ceil(total / limit)
         }
       })
-    }
-  )
+    })
+    .catch(error =>
+      //@ todo try with a result from server that is above 399
+      //  it should have json and use the error in the json instaed
+      dispatch({
+        type: PRODUCTS_LOADING_ERROR,
+        payload: { error, query }
+      })
+    )
 }
 export const loadCategories = () => (
   dispatch,

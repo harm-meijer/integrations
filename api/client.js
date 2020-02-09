@@ -34,10 +34,16 @@ export const makeConfig = token => ({
   mode: 'cors'
 })
 
-const later = time => new Promise(r => setTimeout(r, time))
+const later = (time, args) => {
+  // if (process.browser) {
+  //   console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+  //   throw 'no no no no no'
+  // }
+  return new Promise(r => setTimeout(r, time))
+}
 const fetchJson = (...args) =>
   //@todo remove delay
-  later(2000)
+  later(20, args)
     .then(() => fetch(...args))
     .then(result => result.json())
 const groupFetchJson = group(fetchJson, cache)

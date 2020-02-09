@@ -22,6 +22,7 @@ const ProductDetailHeader = ({ product }) => (
 )
 const ResultComponent = withResult(
   ProductDetailHeader,
+  () => '',
   () => ''
 )
 

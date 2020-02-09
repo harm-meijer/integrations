@@ -29,9 +29,7 @@ ProductsSearch.getInitialProps = ({ store, query }) => {
       needCategories(store, query),
       needProducts(store, query)
     ]).then(() => {
-      //@todo: assuming nothing goes wrong, should
-      //  wrap layout in something that shows only error
-      const { value: products } = useResults([
+      const { value: products = [] } = useResults([
         selectProductsList(store.getState(), query)
       ])(([products]) => products)
       return {

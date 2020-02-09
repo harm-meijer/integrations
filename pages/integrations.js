@@ -37,9 +37,7 @@ ProductsOfCategory.getInitialProps = ({ store, query }) => {
       )
       const title = category?.name
       const subTitle = category?.description
-      //@todo: assuming nothing goes wrong, should
-      //  wrap layout in something that shows only errors
-      const { value: products } = useResults([
+      const { value: products = [] } = useResults([
         selectProductsList(store.getState(), query)
       ])(([products]) => products)
       return {

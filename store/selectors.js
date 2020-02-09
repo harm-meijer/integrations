@@ -104,25 +104,27 @@ const asResult = (value = {}) =>
         ...AVAILABLE,
         value
       }
-// skips calling function if any of the values is loading or has error
+// skips calling passed in function if any of the values is loading or has error
 export const useResults = values => fn => {
-  //@todo: add error as well
   const resultValues = values.map(asResult)
   return resultValues.reduce(
     (available, result) =>
-      available && !result.loading && result.requested,
+      available &&
+      !result.error &&
+      !result.loading &&
+      result.requested,
     true
   )
     ? asResult(fn(resultValues.map(result => result.value)))
     : resultValues.find(
-        //@todo when error is implemented it has priority
-        result => result.loading || !result.loading
+        result =>
+          result.error || result.loading || !result.loading
       )
 }
 
 export const selectProductsList = createSelector(
   selectProductPage,
-  selectCategoriesData, //@todo: categoriesData should return result
+  selectCategoriesData, //@todo: categoriesData should return result as it can fail
   selectProductsData,
   (productsResult, categories, data) => {
     return useResults([

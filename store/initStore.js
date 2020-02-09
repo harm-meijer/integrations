@@ -7,7 +7,8 @@ import {
   PRODUCTS_LOADING_SUCCEEDED,
   CATEGORIES_LOADING_SUCCEEDED,
   SET_QUERY,
-  SET_PAGE_LOADING
+  SET_PAGE_LOADING,
+  PRODUCTS_LOADING_ERROR
 } from './actions'
 import { queryAsKey } from '../helpers'
 
@@ -80,6 +81,28 @@ const rootReducer = (state = initState, action) => {
             value: { total, ids: results.map(r => r.id) },
             loading: false,
             requested: true
+          }
+        }
+      }
+    }
+  }
+  //@todo add reduePath, make code shorter
+  if (type === PRODUCTS_LOADING_ERROR) {
+    const {
+      error,
+      query: { page, ...query }
+    } = payload
+    const key = queryAsKey(query)
+    return {
+      ...state,
+      products: {
+        ...state.products,
+        [key]: {
+          ...state.products[key],
+          [page]: {
+            loading: false,
+            requested: true,
+            error
           }
         }
       }
