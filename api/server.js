@@ -1,5 +1,4 @@
-import fetch from 'isomorphic-unfetch'
-import { group, makeConfig } from './shared'
+const fetch = require('isomorphic-unfetch')
 require('dotenv').config()
 
 const PROJECT_KEY = process.env.PROJECT_KEY
@@ -26,7 +25,16 @@ console.log(
     2
   )
 )
-
+const makeConfig = token => ({
+  headers: {
+    accept: '*/*',
+    ...(token ? { authorization: `Bearer ${token}` } : {}),
+    'content-type': 'application/json',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'cross-site'
+  },
+  mode: 'cors'
+})
 const toUrl = (base, query) => {
   const queryParams = Object.entries(query)
   return (
@@ -48,8 +56,6 @@ const fetchJson = (...args) =>
     }
     return result.json()
   })
-global.cache = new Map()
-const groupFetchJson = group(fetchJson, global.cache)
 const base64 = string =>
   Buffer.from(string).toString('base64')
 const createStorage = storage => {
@@ -125,22 +131,24 @@ const withToken = (() => {
     return doRequest
   }
 })()
-export const getProducts = withToken(
-  (query, { access_token }) => {
-    const url = toUrl(
-      `${API_URL}/${PROJECT_KEY}/product-projections/search`,
-      query
-    )
-    return groupFetchJson(url, makeConfig(access_token))
-  }
-)
+const getProducts = withToken((query, { access_token }) => {
+  const url = toUrl(
+    `${API_URL}/${PROJECT_KEY}/product-projections/search`,
+    query
+  )
+  return fetchJson(url, makeConfig(access_token))
+})
 
-export const getCategories = withToken(
+const getCategories = withToken(
   (query, { access_token }) => {
     const url = toUrl(
       `${API_URL}/${PROJECT_KEY}/categories`,
       query
     )
-    return groupFetchJson(url, makeConfig(access_token))
+    return fetchJson(url, makeConfig(access_token))
   }
 )
+module.exports = {
+  getCategories,
+  getProducts
+}

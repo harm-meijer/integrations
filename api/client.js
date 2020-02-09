@@ -2,17 +2,44 @@ import fetch from 'isomorphic-unfetch'
 import { selectCategoriesData } from '../store/selectors'
 import { loadCategories } from '../store/actions'
 import { get, toUrl, withPage } from '../helpers'
-import { group, makeConfig } from './shared'
 import { LANGUAGE, API, LOCAL_API } from '../constants'
 
 const API_URL = process.browser ? API : LOCAL_API
+const cache = process.browser
+  ? new Map()
+  : {
+      get: () => undefined,
+      set: () => undefined
+    }
+export const group = (fn, groups = cache) => {
+  return (...args) => {
+    const key = JSON.stringify(args)
+    const existing = groups.get(key)
+    if (existing) {
+      return existing
+    }
+    const result = fn(...args)
+    groups.set(key, result)
+    return result
+  }
+}
+export const makeConfig = token => ({
+  headers: {
+    accept: '*/*',
+    ...(token ? { authorization: `Bearer ${token}` } : {}),
+    'content-type': 'application/json',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'cross-site'
+  },
+  mode: 'cors'
+})
+
 const later = time => new Promise(r => setTimeout(r, time))
 const fetchJson = (...args) =>
   //@todo remove delay
   later(2000)
     .then(() => fetch(...args))
     .then(result => result.json())
-const cache = process.browser ? new Map() : global.cache
 const groupFetchJson = group(fetchJson, cache)
 
 export const getProducts = (query, getState, dispatch) => {

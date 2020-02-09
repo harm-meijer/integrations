@@ -5,15 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "start": "babel-node --config-file ./.babel.server server.js",
+    "start": "node server.js",
     "heroku-postbuild": "npm run build"
   },
   "author": "Harm Meijer",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/node": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/runtime-corejs3": "^7.8.4",
     "@zeit/next-sass": "^1.0.1",
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
@@ -34,6 +32,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
+    "@babel/preset-env": "^7.8.3",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
