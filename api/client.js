@@ -36,15 +36,15 @@ export const makeConfig = token => ({
 
 const later = (time, args) => {
   // if (process.browser) {
-  //   console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-  //   args[0] = args[0] + '&filter=blablubluh'
-  //   // throw 'no no no no no'
-  // }
+  if (args[0].includes('error')) {
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+    args[0] = args[0] + '&filter=causes_error'
+  }
   return new Promise(r => setTimeout(() => r(args), time))
 }
 const fetchJson = (...args) =>
   //@todo remove delay
-  later(20, args)
+  later(2000, args)
     .then(args => fetch(...args))
     .then(result => result.json())
     .then(result => {
