@@ -28,3 +28,4 @@ For debugging you can set SERVER_HYDRATE to false in `next.config.js` and noting
 - [ ] SEO for index page
 - [ ] Multiple languages
 - [ ] Product.js css
+- [ ] Menu closes if you miss the link
