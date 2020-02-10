@@ -37,15 +37,22 @@ export const makeConfig = token => ({
 const later = (time, args) => {
   // if (process.browser) {
   //   console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-  //   throw 'no no no no no'
+  //   args[0] = args[0] + '&filter=blablubluh'
+  //   // throw 'no no no no no'
   // }
-  return new Promise(r => setTimeout(r, time))
+  return new Promise(r => setTimeout(() => r(args), time))
 }
 const fetchJson = (...args) =>
   //@todo remove delay
   later(20, args)
-    .then(() => fetch(...args))
+    .then(args => fetch(...args))
     .then(result => result.json())
+    .then(result => {
+      if (result.errors) {
+        throw result.errors[0].message
+      }
+      return result
+    })
 const groupFetchJson = group(fetchJson, cache)
 
 export const getProducts = (query, getState, dispatch) => {

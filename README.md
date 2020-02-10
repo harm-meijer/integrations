@@ -20,3 +20,11 @@ SCOPES=your scopses (when you export from merchant center)
 All api calls will be cached on the server, to clear cache you can open the url: http://localhost:8080/api/flush-cache
 
 For debugging you can set SERVER_HYDRATE to false in `next.config.js` and noting will be fetched on the server, this will preven cache problems as well.
+
+## Todos
+
+- [ ] sitemap.xml fetch all pages
+- [ ] cache in api and state can move to service worker
+- [ ] SEO for index page
+- [ ] Multiple languages
+- [ ] Product.js css
