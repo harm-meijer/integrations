@@ -29,5 +29,5 @@ For debugging you can set SERVER_HYDRATE to false in `next.config.js` and noting
 - [ ] Multiple languages
 - [ ] Product.js css
 - [ ] Css for error and loading
-- [ ] Menu closes if you miss the link
+- [x] Menu closes if you miss the link
 - [ ] Mobile menu (mobile has no hover)
