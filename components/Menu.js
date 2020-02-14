@@ -36,7 +36,9 @@ function MenuLink({
           href={`/integrations?category=${category.slug}`}
           as={`/integrations/${category.slug}`}
         >
-          <span>{category.name}</span>
+          <span className="link-content">
+            {category.name}
+          </span>
         </Link>
       }
       onMouseEnter={handleOpen}
@@ -60,7 +62,9 @@ function MenuLink({
         href={`/integrations?category=${category.slug}`}
         as={`/integrations/${category.slug}`}
       >
-        <span>{category.name}</span>
+        <span className="link-content">
+          {category.name}
+        </span>
       </Link>
     </Nav.Link>
   )
