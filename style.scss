@@ -144,6 +144,7 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 250px;
   & .navbar {
     background-color: rgba(57,101,116,0.6);
     a.nav-link>span { color:white}
