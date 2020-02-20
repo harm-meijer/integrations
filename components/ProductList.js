@@ -4,13 +4,16 @@ import { useSelector } from 'react-redux'
 import {
   selectProductPage,
   selectQuery,
-  selectProductColumns,
+  selectProductsList,
   useResults
 } from '../store/selectors'
 import Link from 'next/link'
 import { Container, Row, Col } from 'react-bootstrap'
 import Product from './Product'
 import withResult from './withResult'
+
+import {Grid, Card} from '@commercetools-frontend/ui-kit';
+
 const List = ({
   products,
   query,
@@ -21,34 +24,16 @@ const List = ({
 }) => {
   return products.length ? (
     <Container className="product-list">
-      {false &&
-      path &&
-      total > 1 && ( //paging, is disabled (need styling)
-          <Row>
-            <Col>
-              {[...new Array(total)]
-                .map((_, index) => index + 1)
-                .map(page => (
-                  <Link
-                    href={`/${path}?${queryKey}=${query[queryKey]}&page=${page}`}
-                    as={`/${path}/${query[queryKey]}/${page}`}
-                    key={page}
-                  >
-                    <a>{page} </a>
-                  </Link>
-                ))}
-            </Col>
-          </Row>
-        )}
-      {products.map((productRow, index) => (
-        <Row key={index}>
-          {productRow.map(product => (
-            <Col key={product.id} sm={12 / columns}>
-              <Product {...product} />
-            </Col>
-          ))}
-        </Row>
-      ))}
+      <Grid gridGap="16px" gridAutoColumns="1fr" gridTemplateColumns={'repeat(4, 1fr)'} >
+      {
+        products.map((product, index) => (
+          <Grid.Item key={index}>
+            <Product {...product} />
+          </Grid.Item>
+        )
+        )
+      }
+      </Grid>
     </Container>
   ) : (
     <Container className="product-list">
@@ -71,7 +56,7 @@ const ProductListContainer = ({
   const productQuery = query || queryFromStore
   useProducts(productQuery)
   const productsResult = useSelector(state =>
-    selectProductColumns(state, productQuery, columns)
+    selectProductsList(state, productQuery)
   )
   const productPageResult = useSelector(state =>
     selectProductPage(state, productQuery)

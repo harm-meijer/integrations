@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Row from 'react-bootstrap/Row'
 
-import {Card, Text} from '@commercetools-frontend/ui-kit';
+import {Card, Text, Grid} from '@commercetools-frontend/ui-kit';
 
 const Product = ({
                    logo,
@@ -11,30 +11,32 @@ const Product = ({
                    Vendor,
                    name
                  }) => (
-  <Link
-    href={`/integration?slug=${slug}`}
-    as={`/integration/${slug}`}
-  >
-    <Card theme="light" type="raised" style={{height: '350px', margin: '10px'}}>
-      {/*<div className="product-list-item">*/}
-        <Row className="image-row" style={{height: '75px', paddingLeft: '10px'}}>
-          <div>
-            <img src={logo} className="vendor-logo"/>
+
+    <Card theme="light" type="raised">
+          <div className="image-row" style={{height: '100px', paddingLeft: '10px'}}>
+            <div>
+              <img src={logo} className="vendor-logo"/>
+            </div>
           </div>
-        </Row>
-        <Row style={{height: '75px', paddingLeft: '10px', overflow: 'hidden'}}>
-          <Text.Headline as="h4">{name}</Text.Headline>
-        </Row>
-        <Row style={{height: '100px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden',  paddingLeft: '10px'}}>
-          <Text.Wrap>{ShortDescription}</Text.Wrap>
-        </Row>
-        <hr/>
-        <Row style={{height: '30px',  paddingLeft: '10px'}} >
-          <Text.Detail tone={'primary'}>{Vendor}</Text.Detail>
-        </Row>
-      {/*</div>*/}
+          <div style={{height: '100px', paddingLeft: '10px', overflow: 'hidden'}}>
+            <Link href={`/integration?slug=${slug}`} as={`/integration/${slug}`}>
+              <Text.Headline as="h4">{name}</Text.Headline>
+            </Link>
+          </div>
+          <div style={{
+            height: '100px',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            paddingLeft: '10px'
+          }}>
+            <Text.Wrap>{ShortDescription}</Text.Wrap>
+          </div>
+          <hr/>
+          <div style={{height: '30px', paddingLeft: '10px'}}>
+            <Text.Detail tone={'primary'}>{Vendor}</Text.Detail>
+          </div>
     </Card>
-  </Link>
 )
 
 export default Product
