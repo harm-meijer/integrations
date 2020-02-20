@@ -3,22 +3,13 @@ import Layout from '../components/Layout'
 import { needProducts, needCategories } from '../helpers'
 import ProductList from '../components/ProductList'
 import {
-  selectQuery,
   selectProductsList,
   useResults
 } from '../store/selectors'
-import IndexHeaderHeader from '../components/IndexHeader'
 
 function ProductsSearch(props) {
   return (
-    <Layout
-      title={props.title}
-      subTitle={props.subTitle}
-      header={IndexHeaderHeader({
-        title: props.title,
-        subTitle: props.subTitle
-      })}
-    >
+    <Layout title={props.title} subTitle={props.subTitle}>
       <ProductList path="search" queryKey="q" />
     </Layout>
   )

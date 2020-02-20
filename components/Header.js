@@ -21,7 +21,6 @@ function Header({ Menu, Search, SubHeader = () => '' }) {
           <Search />
         </Navbar.Collapse>
       </Navbar>
-      <SubHeader />
     </header>
   )
 }
