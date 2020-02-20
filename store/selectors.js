@@ -56,7 +56,8 @@ const asProduct = cat => product => {
     id,
     masterVariant,
     lastModifiedAt,
-    categories
+    categories,
+    assets
   } = product
 
   return {
@@ -71,6 +72,7 @@ const asProduct = cat => product => {
     categories: categories
       .filter(category => category.typeId === 'category')
       .map(({ id }) => asCategory(cat[id])),
+    assets: masterVariant.assets,
     logo: masterVariant.images.find(
       ({ label }) => label === 'logo'
     )?.url,
