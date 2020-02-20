@@ -2,22 +2,16 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { needProducts, needCategories } from '../helpers'
 import {
-  selectQuery,
   selectCategoriesData,
   asCategory
 } from '../store/selectors'
 import ProductList from '../components/ProductList'
-import IndexHeaderHeader from '../components/IndexHeader'
 
 function HomePage(props) {
   return (
     <Layout
       title={props.title}
       metaDescription={props.subTitle}
-      header={IndexHeaderHeader({
-        title: props.title,
-        subTitle: props.subTitle
-      })}
     >
       {props.list.map(([query, title, subTitle]) => (
         <React.Fragment key={title}>
