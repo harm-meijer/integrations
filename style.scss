@@ -1,29 +1,63 @@
 body {
   // font: 13px/20px PTSansRegular,Arial,Helvetica,sans-serif;
-  font-family: 'Open Sans' !important;
+  //font-family: 'Open Sans' !important;
   font-size: 14px;
-  background-color: #f4f4f4;
-  height:100vh;
+  //background-color: #f4f4f4;
+  height: 100vh;
+  color: #1A1A1A;
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 20px;
 }
 
+h1 {
+  color: #000000;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 63px;
+}
 
+h2 {
+  color: #000000;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h3 {
+  color: #213C45;
+  font-size: 32px;
+  line-height: 54px;
+}
+
+.info {
+
+  color: #999999;
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 19px;
+
+}
 
 .logo {
   max-width: 180px;
   margin-left: 35px;
 }
+
 .vendor-logo {
   max-width: 100%;
 
 }
+
 .vendor-image {
   width: 100%;
   margin-bottom: 30px;
 }
+
 .ct-menu {
   margin-left: auto;
   margin-right: 20px;
 }
+
 .product-list {
   margin-top: 30px;
 }
@@ -33,7 +67,7 @@ body {
   padding-right: 8px;
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
   top: 0;
   left: 100%;
   margin-top: -6px;
@@ -43,11 +77,11 @@ body {
   border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }
 
-.dropdown-submenu>a:after {
+.dropdown-submenu > a:after {
   display: block;
   content: " ";
   float: right;
@@ -60,7 +94,8 @@ body {
   margin-top: 5px;
   margin-right: -10px;
 }
-.dropdown-submenu:hover>a:after {
+
+.dropdown-submenu:hover > a:after {
   border-left-color: #fff;
 }
 
@@ -68,7 +103,7 @@ body {
   float: none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
+.dropdown-submenu.pull-left > .dropdown-menu {
   left: -100%;
   margin-left: 10px;
   -webkit-border-radius: 6px 0 6px 6px;
@@ -85,55 +120,75 @@ body {
   letter-spacing: 0px;
   font-style: normal;
   color: #333333;
+
   &.small {
     font-size: 20px;
   }
 }
+
 .integration {
   padding-bottom: 20px;
   padding-left: 10%;
   padding-right: 10%;
+
   & h1 {
-    color:white;
+    color: white;
   }
 }
+
 .vendor-details {
   padding-left: 10%;
   padding-right: 10%;
+
   & .title {
     font-weight: bold;
-    margin-top:30px;
+    margin-top: 30px;
   }
+
   & .description {
-    margin-bottom:30px;
+    margin-bottom: 30px;
   }
 }
+
 .product-list-item {
   cursor: pointer;
-  margin-right:10px;
-  padding-top: 15px;
-  //border-radius: 5px;
-  //width: 100%;
-  //box-shadow: rgb(166, 153, 166) 4px -4px 20px 0px;
+  padding: 15px;
+  //width: 25%;
+  height: 300px;
 
-  & img {
-    max-height: 75px;
-  }
-
-  & h2 {
-    font-size: 20px
-  }
-
-  & .title-row {
-    height:75px;
-    overflow: hidden;
-  }
-
-  & .image-row {
-    min-height:75px;
+  //& img {
+  //  max-height: 75px;
+  //}
+  //
+  //& h2 {
+  //  font-size: 20px
+  //}
+  //
+  ////& .title-row {
+  ////  height:75px;
+  ////  overflow: hidden;
+  ////}
+  //
+  //& .description-row {
+  //  height:75px;
+  //  overflow: hidden;
+  //}
+  //
+  //& .image-row {
+  //  min-height:75px;
+  //}
+  //
+  //& .vendor-name {
+  //  color: #999999;	font-family: Roboto;	font-size: 14px;	line-height: 19px;
+  //}
+  //
+  & h3 {
+    color: #1A1A1A;
+    font-family: Roboto;
+    font-size: 20px;
+    line-height: 26px;
   }
 }
-
 
 
 .header {
@@ -145,44 +200,56 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 250px;
+
   & .navbar {
-    background-color: rgba(57,101,116,0.6);
-    a.nav-link>span.link-content { 
-      color:white;
+    background-color: rgba(57, 101, 116, 0.6);
+
+    a.nav-link > span.link-content {
+      color: white;
       width: 100%;
       display: inline-block;
-      padding-left:5px;
-      padding-right:5px;
+      padding-left: 5px;
+      padding-right: 5px;
+
       &:hover {
-        background-color:white;
-        color:black;
+        background-color: white;
+        color: black;
         border-radius: 5px;
       }
     }
-    a.dropdown-toggle.nav-link{
-      &> span {
-        color:white
+
+    a.dropdown-toggle.nav-link {
+      & > span {
+        color: white
       }
-      &::after {color:white}
+
+      &::after {
+        color: white
+      }
     }
+
     .dropdown-menu.show {
-      background-color: rgb(57,101,116);
-      margin-top:0px;
+      background-color: rgb(57, 101, 116);
+      margin-top: 0px;
+
       a.dropdown-item {
-        color:white;
+        color: white;
+
         &:hover {
-          color:black
+          color: black
         }
       }
     }
   }
 }
+
 .link-button {
   margin-right: 20px;
 }
+
 #content {
-  padding-left:10%;
-  padding-right:10%;
+  padding-left: 10%;
+  padding-right: 10%;
   min-height: 100vh !important;
 }
 
