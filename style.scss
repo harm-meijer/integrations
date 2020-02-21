@@ -100,9 +100,6 @@ h4 {
   margin-top: 5px;
   margin-right: -10px;
 }
-.dropdown-submenu:hover>a:after {
-  border-left-color: #fff;
-}
 
 .dropdown-submenu.pull-left {
   float: none;
@@ -156,32 +153,7 @@ h4 {
 }
 .product-list-item {
   cursor: pointer;
-  margin-right:10px;
-  padding-top: 15px;
-  //border-radius: 5px;
-  //width: 100%;
-  //box-shadow: rgb(166, 153, 166) 4px -4px 20px 0px;
-
-  & img {
-    max-height: 75px;
-  }
-
-  & h2 {
-    font-size: 20px
-  }
-
-  & .title-row {
-    height:75px;
-    overflow: hidden;
-  }
-
-  & .image-row {
-    min-height:75px;
-  }
 }
-
-
-
 .header {
   max-width: 100%;
   background-color: white;
@@ -208,7 +180,6 @@ h4 {
       &> span {
         color:black
       }
-      &::after {color:black}
     }
     .dropdown-menu.show {
       //background-color: rgb(57,101,116);
