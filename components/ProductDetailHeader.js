@@ -12,7 +12,7 @@ import withResult from './withResult'
 
 const ProductDetailHeader = ({ product }) => (
   <div className="integration">
-    <IntegrationBadges product={product} />
+
     <h1 className="big-title">{product.name}</h1>
     <h1 className="integration-header">
       {product.ShortDescription}
