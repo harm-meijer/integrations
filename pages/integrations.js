@@ -9,6 +9,7 @@ import {
   useResults
 } from '../store/selectors'
 // import IntegrationsHeader from '../components/IntegrationsHeader'
+import Section from '../components/Section';
 
 function ProductsOfCategory(props) {
   return (
@@ -17,6 +18,7 @@ function ProductsOfCategory(props) {
       metaDescription={props.metaDescription}
       metaKeywords={props.metaKeywords}
     >
+      <Section header={props.title} subHeader={props.subTitle}/>
       <ProductList
         path="integrations"
         queryKey="category"

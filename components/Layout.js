@@ -34,7 +34,9 @@ function Layout(props) {
       </Container>
       <Container className="content">
         {props.loading ? (
+          <div style={{height:'100vh'}}>
           <LoadingSpinner scale='l'>Loading...</LoadingSpinner>
+          </div>
         ) : (
           <div id="content">{props.children}</div>
         )}
