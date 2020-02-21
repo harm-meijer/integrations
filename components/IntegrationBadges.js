@@ -2,19 +2,22 @@ import React, { useMemo } from 'react'
 import { Badge } from 'react-bootstrap'
 import { selectMenuCategories } from '../store/selectors'
 import { useSelector } from 'react-redux'
+import {Tag, Grid} from '@commercetools-frontend/ui-kit';
 
 const IntegrationBadges = ({ categories }) => (
-  <div>
+  <Grid>
     {categories.map(category => (
-      <Badge
-        variant="light"
+      <Grid.Item>
+      <Tag
+        type="normal"
         key={category}
-        style={{ marginRight: '5px' }}
+        style={{padding:'15px'}}
       >
         {category}
-      </Badge>
+      </Tag>
+      </Grid.Item>
     ))}
-  </div>
+  </Grid>
 )
 export default function IntegrationBadgesContainer({
   product
@@ -24,6 +27,7 @@ export default function IntegrationBadgesContainer({
     const categories = (product?.categories || [])
       .filter(c => menuCategories.get(c.id))
       .map(c => c.name)
+
     return categories.length
       ? IntegrationBadges({ categories })
       : ''

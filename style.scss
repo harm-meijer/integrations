@@ -153,6 +153,11 @@ h4 {
   & .description {
     margin-bottom:30px;
   }
+
+  & .integration-description {
+    column-count: 2;
+    margin-bottom:30px;
+  }
 }
 .product-list-item {
   cursor: pointer;

@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import withResult from './withResult'
 import {Text} from '@commercetools-frontend/ui-kit';
+import IntegrationBadges from "./IntegrationBadges";
 
 
 const ProductDetail = ({ product }) => (
@@ -34,6 +35,7 @@ const ProductDetail = ({ product }) => (
         {product.logo && (
           <img src={product.logo} className="vendor-logo" />
         )}
+        <IntegrationBadges product={product} />
       </Col>
     </Row>
     <Row>
@@ -47,7 +49,7 @@ const ProductDetail = ({ product }) => (
       <Col sm={12}>
         <HtmlDiv
           content={product.Description}
-          className="description"
+          className="integration-description"
         />
       </Col>
     </Row>
