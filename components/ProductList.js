@@ -7,32 +7,47 @@ import {
   selectProductsList,
   useResults
 } from '../store/selectors'
-import Link from 'next/link'
 import { Container, Row, Col } from 'react-bootstrap'
 import Product from './Product'
 import withResult from './withResult'
 
-import {Grid, Card} from '@commercetools-frontend/ui-kit';
+import { Grid } from '@commercetools-frontend/ui-kit'
 
 const List = ({
-  products,
-  query,
-  path,
-  queryKey,
-  total,
-  columns
+  products
+  // query,
+  // path,
+  // queryKey,
+  // total,
+  // columns
 }) => {
+  // pagination
+  // {path &&
+  //   total > 1 && ( //paging, is disabled (need styling)
+  //           {[...new Array(total)]
+  //             .map((_, index) => index + 1)
+  //             .map(page => (
+  //               <Link
+  //                 href={`/${path}?${queryKey}=${query[queryKey]}&page=${page}`}
+  //                 as={`/${path}/${query[queryKey]}/${page}`}
+  //                 key={page}
+  //               >
+  //                 <a>{page} </a>
+  //               </Link>
+  //             ))}
+  //     )}
   return products.length ? (
     <Container className="product-list">
-      <Grid gridGap="16px" gridAutoColumns="1fr" gridTemplateColumns={'repeat(4, 1fr)'} >
-      {
-        products.map((product, index) => (
+      <Grid
+        gridGap="16px"
+        gridAutoColumns="1fr"
+        gridTemplateColumns={'repeat(4, 1fr)'}
+      >
+        {products.map((product, index) => (
           <Grid.Item key={index}>
             <Product {...product} />
           </Grid.Item>
-        )
-        )
-      }
+        ))}
       </Grid>
     </Container>
   ) : (
@@ -45,12 +60,12 @@ const List = ({
 }
 const ResultComponent = withResult(List)
 const ProductListContainer = ({
-  query,
-  path,
-  queryKey,
-  columns = 4,
-  title,
-  subTitle
+  query
+  // path,
+  // queryKey,
+  // columns = 4,
+  // title,
+  // subTitle
 }) => {
   const queryFromStore = useSelector(selectQuery)
   const productQuery = query || queryFromStore
@@ -72,23 +87,15 @@ const ProductListContainer = ({
     () =>
       ResultComponent({
         ...result.value,
-        ...result,
-        query: productQuery,
-        path,
-        queryKey,
-        title,
-        subTitle: title === subTitle ? '' : subTitle,
-        columns
+        ...result
+        // query: productQuery,
+        // path,
+        // queryKey,
+        // title,
+        // subTitle: title === subTitle ? '' : subTitle,
+        // columns
       }),
-    [
-      result,
-      productQuery,
-      path,
-      queryKey,
-      title,
-      subTitle,
-      columns
-    ]
+    [result]
   )
 }
 export default ProductListContainer
