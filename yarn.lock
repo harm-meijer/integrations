@@ -4966,6 +4966,11 @@ fstream@^1.0.0, fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
+ftellipsis@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/ftellipsis/-/ftellipsis-0.2.3.tgz#8b280109e34b3f59b30ce1645e220ef1eac52cef"
+  integrity sha1-iygBCeNLP1mzDOFkXiIO8erFLO8=
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"

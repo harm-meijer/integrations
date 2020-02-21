@@ -6,6 +6,7 @@ import {
   asCategory
 } from '../store/selectors'
 import ProductList from '../components/ProductList'
+import Section from '../components/Section';
 
 function HomePage(props) {
   return (
@@ -15,7 +16,7 @@ function HomePage(props) {
     >
       {props.list.map(([query, title, subTitle]) => (
         <React.Fragment key={title}>
-          <h3 className="integration-header">{subTitle}</h3>
+          <Section header={title} subHeader={subTitle}/>
           <ProductList query={query} columns={4} />
         </React.Fragment>
       ))}

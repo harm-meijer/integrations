@@ -6,6 +6,7 @@ import Header from './Header'
 import Container from 'react-bootstrap/Container'
 import { useSelector } from 'react-redux'
 import SubHeader from './SubHeader'
+import {LoadingSpinner} from '@commercetools-frontend/ui-kit';
 function Layout(props) {
   return (
     <React.Fragment>
@@ -27,16 +28,18 @@ function Layout(props) {
         />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet"/>
       </Head>
-
       <SubHeader />
-      <Container className="content">
+      <Container>
         <Header Menu={Menu} Search={Search} />
+      </Container>
+      <Container className="content">
         {props.loading ? (
-          <div id="content">Loading...</div>
+          <LoadingSpinner scale='l'>Loading...</LoadingSpinner>
         ) : (
           <div id="content">{props.children}</div>
         )}
       </Container>
+
     </React.Fragment>
   )
 }
