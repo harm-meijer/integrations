@@ -47,7 +47,7 @@ const renderAndCache = (hit, miss) => (
 ) => {
   const key = JSON.stringify([req.originalUrl, req.method])
   const exist = cache.get(key)
-  if (false) {
+  if (exist) {
     res.setHeader('X-Cache', 'HIT')
     return hit(res, exist)
   }
