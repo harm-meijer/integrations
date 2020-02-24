@@ -7,11 +7,14 @@ function Header({ Menu, Search, SubHeader = () => '' }) {
       <Navbar expand="sm">
         <Navbar.Brand>
           <Link href="/">
+            <div>
             <img
               className="logo"
-              src="https://commercetools.com/wp-content/uploads/2018/06/logo.png"
+              src="/commercetools-logo.png"
               title="Home"
             />
+            Integration Marketplace
+            </div>
           </Link>
         </Navbar.Brand>
 

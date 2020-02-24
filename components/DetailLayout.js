@@ -5,9 +5,8 @@ import Search from './Search'
 import Header from './Header'
 import Container from 'react-bootstrap/Container'
 import { useSelector } from 'react-redux'
-import SubHeader from './SubHeader'
+import ProductDetailHeader from './ProductDetailHeader'
 import {LoadingSpinner} from '@commercetools-frontend/ui-kit';
-import Footer from './Footer';
 
 function Layout(props) {
   return (
@@ -30,7 +29,7 @@ function Layout(props) {
         />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet"/>
       </Head>
-      <SubHeader />
+      <ProductDetailHeader />
       <Container>
         <Header Menu={Menu} Search={Search} />
       </Container>
@@ -43,7 +42,7 @@ function Layout(props) {
           <div id="content">{props.children}</div>
         )}
       </Container>
-      <Footer/>
+
     </React.Fragment>
   )
 }

@@ -1,19 +1,18 @@
 import React, { useMemo } from 'react'
-import { Button } from 'react-bootstrap'
+import {PrimaryButton} from '@commercetools-frontend/ui-kit';
 
 const Links = links => (
   <React.Fragment>
     {links.map(([txt, href]) => (
-      <Button
-        variant="primary"
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+      <PrimaryButton
+        tone="primary"
         key={txt}
-        className="link-button"
+        label={txt}
+        size="big"
+        buttonAttributes={{href:href, rel:'noopener noreferrer', target:'_blank'}}
+        as="a"
       >
-        {txt}
-      </Button>
+      </PrimaryButton>
     ))}
   </React.Fragment>
 )

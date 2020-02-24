@@ -51,6 +51,7 @@ h4 {
 .logo {
   max-width: 180px;
   margin-left: 35px;
+  max-height: 40px;
 }
 .vendor-logo {
   max-width: 100%;
@@ -134,12 +135,29 @@ h4 {
   text-align: center;
   //background-color: red;
   background-size: cover;
-  background: url(https://commercetools.com/wp-content/uploads/2018/07/Platform_Banner.png);
+  //background: url(https://commercetools.com/wp-content/uploads/2018/07/Platform_Banner.png);
+  background: url(/hero_bghomeX2.png);
   z-index: -1;
   & h1 {
     color:white;
   }
 }
+
+.integration-product {
+  position: absolute;
+  top: 52px;
+  width: 100%;
+  height: 400px;
+  text-align: center;
+  //background-color: red;
+  background-size: cover;
+  background: url(/hero_bggreyX2.png);
+  z-index: -1;
+  & h1 {
+    color:white;
+  }
+}
+
 .vendor-details {
   padding-left: 10%;
   padding-right: 10%;

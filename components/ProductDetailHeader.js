@@ -7,17 +7,18 @@ import {
 import { useSelector } from 'react-redux'
 import { useProducts } from '../hooks'
 import Links from './Links'
-import IntegrationBadges from './IntegrationBadges'
 import withResult from './withResult'
+import {Container} from 'react-bootstrap';
 
 const ProductDetailHeader = ({ product }) => (
-  <div className="integration">
-
-    <h1 className="big-title">{product.name}</h1>
-    <h1 className="integration-header">
+  <div className="integration-product" style={{paddingTop: '150px'}}>
+    <Container style={{textAlign:'left'}}>
+    <h1 style={{color:'#1A1A1A'}}>{product.name}</h1>
+    <h2>
       {product.ShortDescription}
-    </h1>
+    </h2>
     <Links product={product} />
+    </Container>
   </div>
 )
 const ResultComponent = withResult(

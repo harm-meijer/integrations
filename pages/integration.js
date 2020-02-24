@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/Layout'
+import Layout from '../components/DetailLayout'
 import { needProducts, needCategories } from '../helpers'
 import {
   selectProductsList,
@@ -18,7 +18,6 @@ function ProductDetailPage({
       title={productName}
       metaDescription={metaDescription}
       metaKeywords={metaKeywords}
-      header={ProductDetailHeaderContainer}
     >
       <ProductDetail />
     </Layout>
