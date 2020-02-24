@@ -31,7 +31,7 @@ function Layout({SubHeader,...props}) {
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet"/>
       </Head>
       <SubHeader />
-      <Container>
+      <Container style={{position:'relative'}}>
         <Header Menu={Menu} Search={Search} />
       </Container>
       <Container className="content">
