@@ -3,9 +3,20 @@ body {
   //font-family: 'Open Sans' !important;
   font-size: 14px;
   //background-color: #f4f4f4;
-  height: 100vh;
+  //height: 100vh;
   color: #1A1A1A;
   font-family: Roboto;
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #E8E8E8;
 }
 
 html {
@@ -40,12 +51,9 @@ h4 {
 }
 
 .info {
-
   color: #999999;
-  font-family: Roboto;
   font-size: 14px;
   line-height: 19px;
-
 }
 
 .logo {
@@ -127,6 +135,7 @@ h4 {
     font-size: 20px;
   }
 }
+
 .integration {
   position: absolute;
   top: 52px;
@@ -177,6 +186,7 @@ h4 {
 .product-list-item {
   cursor: pointer;
 }
+
 .header {
   max-width: 100%;
   background-color: white;
@@ -224,7 +234,7 @@ h4 {
 #content {
   padding-left:10%;
   padding-right:10%;
-  min-height: 100vh !important;
+  //min-height: 100vh !important;
   margin-bottom: 5px;
 }
 
