@@ -44,7 +44,7 @@ const later = (time, args) => {
 }
 const fetchJson = (...args) =>
   //@todo remove delay
-  later(2000, args)
+  later(20, args)
     .then(args => fetch(...args))
     .then(result => result.json())
     .then(result => {

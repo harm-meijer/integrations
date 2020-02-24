@@ -9,7 +9,7 @@ import SubHeader from './SubHeader'
 import {LoadingSpinner} from '@commercetools-frontend/ui-kit';
 import Footer from './Footer';
 
-function Layout(props) {
+function Layout({SubHeader,...props}) {
   return (
     <React.Fragment>
       <Head>
@@ -51,6 +51,7 @@ export default function LayoutContainer(props) {
   const loading = useSelector(s => s.loading)
   return Layout({
     ...props,
-    loading
+    loading,
+    SubHeader:props.SubHeader||SubHeader
   })
 }

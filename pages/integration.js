@@ -1,25 +1,28 @@
 import React from 'react'
-import Layout from '../components/DetailLayout'
+import Layout from '../components/Layout'
 import { needProducts, needCategories } from '../helpers'
 import {
   selectProductsList,
   useResults
 } from '../store/selectors'
 import ProductDetail from '../components/ProductDetail'
-import ProductDetailHeaderContainer from '../components/ProductDetailHeader'
+import ProductDetailHeader from '../components/ProductDetailHeader'
 
 function ProductDetailPage({
   productName,
   metaDescription,
-  metaKeywords
+  metaKeywords,
 }) {
   return (
     <Layout
       title={productName}
       metaDescription={metaDescription}
       metaKeywords={metaKeywords}
+      SubHeader={ProductDetailHeader}
     >
+      <div>
       <ProductDetail />
+      </div>
     </Layout>
   )
 }
@@ -36,7 +39,7 @@ ProductDetailPage.getInitialProps = ({ store, query }) => {
         query,
         productName: product.name,
         metaDescription: product.metaDescription,
-        metaKeywords: product.searchKeywords || ''
+        metaKeywords: product.searchKeywords || '',
       }
     })
   }
