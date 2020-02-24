@@ -17,10 +17,12 @@ export default withRedux(initStore, {
       ctx.store.dispatch(setPageLoading(true))
       return {
         pageProps: Component.getInitialProps
-          ? await Component.getInitialProps({
-              ...ctx,
-              query: withPage(ctx.query)
-            }).then(props => {
+          ? await Promise.resolve(
+              Component.getInitialProps({
+                ...ctx,
+                query: withPage(ctx.query)
+              })
+            ).then(props => {
               ctx.store.dispatch(setPageLoading(false))
               return props
             })
