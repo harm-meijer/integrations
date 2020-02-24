@@ -146,7 +146,7 @@ h4 {
   background-size: cover;
   //background: url(https://commercetools.com/wp-content/uploads/2018/07/Platform_Banner.png);
   background: url(/hero_bghomeX2.png);
-  z-index: -1;
+  // z-index: -1;
   & h1 {
     color:white;
   }
@@ -161,7 +161,7 @@ h4 {
   //background-color: red;
   background-size: cover;
   background: url(/hero_bggreyX2.png);
-  z-index: -1;
+  // z-index: -1;
   & h1 {
     color:white;
   }
@@ -193,7 +193,7 @@ h4 {
   border-radius: 16px;
   height: 75px;
   top:0px;
-  z-index: 1;
+  // z-index: 1;
   & .navbar {
     // background-color: rgba(57,101,116,0.6);
     border-radius: 25px;
