@@ -44,7 +44,7 @@ const List = ({
         gridTemplateColumns={'repeat(4, 1fr)'}
       >
         {products.map((product, index) => (
-          <Grid.Item key={index}>
+          <Grid.Item key={index} className="clickable">
             <Product {...product} />
           </Grid.Item>
         ))}

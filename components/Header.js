@@ -6,8 +6,8 @@ function Header({ Menu, Search, SubHeader = () => '' }) {
     <header className="header">
       <Navbar expand="sm">
         <Navbar.Brand>
-          <Link href="/">
-            <div>
+          <Link href="/" >
+            <div className="clickable">
             <img
               className="logo"
               src="/commercetools-logo.png"

@@ -7,45 +7,41 @@ import {
 } from '@commercetools-frontend/ui-kit'
 
 const Product = ({
-  logo,
-  ShortDescription,
-  slug,
-  Vendor,
-  name
-}) => (
-  <Card theme="light" type="raised">
-    <div
-      className="image-row"
-      style={{ height: '75px'}}
-    >
-      <Link
-        href={`/integration?slug=${slug}`}
-        as={`/integration/${slug}`}
-      >
-        <div style={{background:'url('+ logo + ') no-repeat center', height: '75px', backgroundSize: 'contain'}} className="vendor-logo"></div>
-      </Link>
-    </div>
-    <Link
-      href={`/integration?slug=${slug}`}
-      as={`/integration/${slug}`}
-    >
+                   logo,
+                   ShortDescription,
+                   slug,
+                   Vendor,
+                   name
+                 }) => (
+  <Link
+    href={`/integration?slug=${slug}`}
+    as={`/integration/${slug}`}
+  >
+    <Card theme="light" type="raised">
       <div
-        style={{ height: '100px', overflow: 'hidden' }}
+        className="image-row"
+        style={{height: '75px'}}
+      >
+
+        <div style={{background: 'url(' + logo + ') no-repeat center', height: '75px', backgroundSize: 'contain'}}
+             className="vendor-logo"></div>
+
+      </div>
+
+      <div
+        style={{height: '100px', overflow: 'hidden'}}
         className="line-clamp"
       >
         {ShortDescription}
       </div>
-    </Link>
-    <hr />
-    <div style={{ height: '30px', paddingLeft: '10px' }}>
-      <Link
-        href={`/integration?slug=${slug}`}
-        as={`/integration/${slug}`}
-      >
+      <hr/>
+      <div style={{height: '30px', paddingLeft: '10px'}}>
+
         <Text.Detail tone={'primary'}>{Vendor}</Text.Detail>
-      </Link>
-    </div>
-  </Card>
+
+      </div>
+    </Card>
+  </Link>
 )
 
 export default Product
