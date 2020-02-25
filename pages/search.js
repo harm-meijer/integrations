@@ -6,10 +6,16 @@ import {
   selectProductsList,
   useResults
 } from '../store/selectors'
+import Section from '../components/Section'
 
 function ProductsSearch(props) {
   return (
     <Layout title={props.title} subTitle={props.subTitle}>
+      <Section
+        header={props.title}
+        subHeader={props.subTitle}
+      />
+
       <ProductList path="search" queryKey="q" />
     </Layout>
   )

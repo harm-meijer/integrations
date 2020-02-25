@@ -6,6 +6,8 @@ import React, {
 import Router from 'next/router'
 import { useSelector } from 'react-redux'
 import { selectQuery } from '../store/selectors'
+import {TextInput, SearchIcon} from '@commercetools-frontend/ui-kit';
+
 const SearchText = function SearchText({
   change,
   search,
@@ -16,14 +18,15 @@ const SearchText = function SearchText({
       className="form-inline my-2 my-lg-0"
       onSubmit={search}
     >
-      <input
-        type="text"
-        className="form-control mr-sm-2"
-        placeholder="Search"
-        aria-label="Search"
-        onChange={change}
-        value={searchText}
-      />
+      <TextInput value={searchText} onChange={change} aria-label="Search" placeholder="Search for..."></TextInput>
+      {/*<input*/}
+        {/*type="text"*/}
+        {/*className="form-control mr-sm-2"*/}
+        {/*placeholder="Search"*/}
+        {/*aria-label="Search"*/}
+        {/*onChange={change}*/}
+        {/*value={searchText}*/}
+      {/*/>*/}
     </form>
   )
 }
