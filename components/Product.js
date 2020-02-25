@@ -13,35 +13,27 @@ const Product = ({
                    Vendor,
                    name
                  }) => (
-  <Link
-    href={`/integration?slug=${slug}`}
-    as={`/integration/${slug}`}
-  >
-    <Card theme="light" type="raised">
-      <div
-        className="image-row"
-        style={{height: '75px'}}
-      >
 
+  <Card theme="light" type="raised">
+    <Link href={`/integration?slug=${slug}`} as={`/integration/${slug}`}>
+      <div className="image-row" style={{height: '75px'}}>
         <div style={{background: 'url(' + logo + ') no-repeat center', height: '75px', backgroundSize: 'contain'}}
              className="vendor-logo"></div>
-
       </div>
+    </Link>
 
-      <div
-        style={{height: '100px', overflow: 'hidden'}}
-        className="line-clamp"
-      >
+    <Link href={`/integration?slug=${slug}`} as={`/integration/${slug}`}>
+      <div style={{height: '100px', overflow: 'hidden'}} className="line-clamp">
         {ShortDescription}
       </div>
-      <hr/>
+    </Link>
+    <hr/>
+    <Link href={`/integration?slug=${slug}`} as={`/integration/${slug}`}>
       <div style={{height: '30px', paddingLeft: '10px'}}>
-
         <Text.Detail tone={'primary'}>{Vendor}</Text.Detail>
-
       </div>
-    </Card>
-  </Link>
+    </Link>
+  </Card>
 )
 
 export default Product
