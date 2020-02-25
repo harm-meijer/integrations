@@ -36,7 +36,7 @@ ProductsSearch.getInitialProps = ({ store, query }) => {
           ? `Found ${products.length} result${
               products.length > 1 ? 's' : ''
             }`
-          : 'No results found'
+          : ''
       }
     })
   }
