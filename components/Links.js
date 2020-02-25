@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import Link from 'next/link'
-import {PrimaryButton, SecondaryButton} from '@commercetools-frontend/ui-kit';
+import {PrimaryButton, SecondaryButton, ExternalLinkIcon} from '@commercetools-frontend/ui-kit';
 
 const Links = links => (
   <React.Fragment>
@@ -19,7 +19,9 @@ const Links = links => (
                 // route to new page by changing window.location
                 window.open(href, "_blank", "noopener") //to open new page
               }}
+              iconLeft={React.createElement(ExternalLinkIcon)}
             >
+
             </PrimaryButton>
           )
         } else {
@@ -33,6 +35,7 @@ const Links = links => (
                 // route to new page by changing window.location
                 window.open(href, "_blank", "noopener") //to open new page
               }}
+              iconLeft={React.createElement(ExternalLinkIcon)}
             >
             </SecondaryButton>
           )
