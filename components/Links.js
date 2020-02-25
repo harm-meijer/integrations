@@ -8,6 +8,7 @@ const Links = links => (
 
         if (tags.indexOf('cta') > -1) {
           return (
+
             <PrimaryButton
               tone="primary"
               key={txt}
@@ -20,9 +21,11 @@ const Links = links => (
                 window.open(href, "_blank", "noopener") //to open new page
               }}
               iconLeft={React.createElement(ExternalLinkIcon)}
+              style={{marginRight: '10px'}}
             >
 
             </PrimaryButton>
+
           )
         } else {
           return (
@@ -36,8 +39,10 @@ const Links = links => (
                 window.open(href, "_blank", "noopener") //to open new page
               }}
               iconLeft={React.createElement(ExternalLinkIcon)}
+              style={{marginRight: '10px'}}
             >
             </SecondaryButton>
+
           )
         }
       }

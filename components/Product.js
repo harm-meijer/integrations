@@ -16,16 +16,14 @@ const Product = ({
   <Card theme="light" type="raised">
     <div
       className="image-row"
-      style={{ height: '75px', paddingLeft: '10px' }}
+      style={{ height: '75px'}}
     >
-      <div>
-        <Link
-          href={`/integration?slug=${slug}`}
-          as={`/integration/${slug}`}
-        >
-          <img src={logo} className="vendor-logo" />
-        </Link>
-      </div>
+      <Link
+        href={`/integration?slug=${slug}`}
+        as={`/integration/${slug}`}
+      >
+        <div style={{background:'url('+ logo + ') no-repeat center', height: '75px', backgroundSize: 'contain'}} className="vendor-logo"></div>
+      </Link>
     </div>
     <Link
       href={`/integration?slug=${slug}`}
