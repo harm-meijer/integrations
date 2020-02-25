@@ -3,8 +3,8 @@ body {
   //font-family: 'Open Sans' !important;
   font-size: 14px;
   //background-color: #f4f4f4;
-  //height: 100vh;
-  color: #1A1A1A;
+  height: 100vh;
+  color: #1a1a1a;
   font-family: Roboto;
   margin-bottom: 60px;
 }
@@ -16,7 +16,7 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
 }
 
 html {
@@ -42,12 +42,15 @@ h2 {
 }
 
 h3 {
-  color: #213C45;
+  color: #213c45;
   font-size: 24px;
 }
 
 h4 {
-  color: #213C45;	font-family: Roboto;	font-size: 20px;	line-height: 26px;
+  color: #213c45;
+  font-family: Roboto;
+  font-size: 20px;
+  line-height: 26px;
 }
 
 .info {
@@ -63,7 +66,6 @@ h4 {
 }
 .vendor-logo {
   max-width: 100%;
-
 }
 .vendor-image {
   width: 100%;
@@ -83,7 +85,7 @@ h4 {
   padding-right: 8px;
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
   top: 0;
   left: 100%;
   margin-top: -6px;
@@ -93,13 +95,13 @@ h4 {
   border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }
 
-.dropdown-submenu>a:after {
+.dropdown-submenu > a:after {
   display: block;
-  content: " ";
+  content: ' ';
   float: right;
   width: 0;
   height: 0;
@@ -115,7 +117,7 @@ h4 {
   float: none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
+.dropdown-submenu.pull-left > .dropdown-menu {
   left: -100%;
   margin-left: 10px;
   -webkit-border-radius: 6px 0 6px 6px;
@@ -147,9 +149,11 @@ h4 {
   background-size: cover;
   //background: url(https://commercetools.com/wp-content/uploads/2018/07/Platform_Banner.png);
   background: url(/hero_bghomeX2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   // z-index: -1;
   & h1 {
-    color:white;
+    color: white;
   }
 }
 
@@ -160,11 +164,12 @@ h4 {
   height: 400px;
   text-align: center;
   //background-color: red;
-  background-size: cover;
   background: url(/hero_bggreyX2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   // z-index: -1;
   & h1 {
-    color:white;
+    color: white;
   }
 }
 
@@ -173,15 +178,15 @@ h4 {
   padding-right: 10%;
   & .title {
     font-weight: bold;
-    margin-top:30px;
+    margin-top: 30px;
   }
   & .description {
-    margin-bottom:30px;
+    margin-bottom: 30px;
   }
 
   & .integration-description {
     column-count: 2;
-    margin-bottom:30px;
+    margin-bottom: 30px;
   }
 }
 .product-list-item {
@@ -193,36 +198,36 @@ h4 {
   background-color: white;
   border-radius: 16px;
   height: 75px;
-  top:0px;
+  top: 0px;
   // z-index: 1;
   & .navbar {
     // background-color: rgba(57,101,116,0.6);
     border-radius: 25px;
-    a.nav-link>span.link-content {
-      color:black;
+    a.nav-link > span.link-content {
+      color: black;
       width: 100%;
       display: inline-block;
-      padding-left:5px;
-      padding-right:5px;
+      padding-left: 5px;
+      padding-right: 5px;
       &:hover {
         background-color: #dfdfdf;
-        color:black;
+        color: black;
         border-radius: 5px;
       }
     }
-    a.dropdown-toggle.nav-link{
-      &> span {
-        color:black
+    a.dropdown-toggle.nav-link {
+      & > span {
+        color: black;
       }
     }
     .dropdown-menu.show {
       //background-color: rgb(57,101,116);
       background-color: white;
-      margin-top:0px;
+      margin-top: 0px;
       a.dropdown-item {
-        color:black;
+        color: black;
         &:hover {
-          color:black
+          color: black;
         }
       }
     }
@@ -245,6 +250,6 @@ h4 {
   padding-right: 0px;
   top: 300px;
   position: relative;
-  border-radius: 16px;
-  //height: 800px;
+  border-radius: 16px
+  //height: 100vh;
 }
