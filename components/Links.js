@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import Link from 'next/link'
 import {PrimaryButton, SecondaryButton, ExternalLinkIcon} from '@commercetools-frontend/ui-kit';
 
 const Links = links => (

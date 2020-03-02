@@ -10,7 +10,7 @@ function Footer() {
       <div className="container">
         <Grid gridGap="16px"
               gridAutoColumns="1fr"
-              gridTemplateColumns={'3fr 2fr 1fr 1fr'}>
+              gridTemplateColumns={'3fr 2fr 1fr 1fr 1fr'}>
           <Grid.Item>
             <img src="/commercetools-logo-horiz.png" className='logo'/>
           </Grid.Item>
@@ -20,10 +20,15 @@ function Footer() {
             </b>
           </Grid.Item>
           <Grid.Item>
-            | Privacy Policy <ExternalLinkIcon />
+            <b>
+             Contact Us <ExternalLinkIcon /> |
+            </b>
           </Grid.Item>
           <Grid.Item>
-            | Imprint <ExternalLinkIcon />
+            Privacy Policy <ExternalLinkIcon /> |
+          </Grid.Item>
+          <Grid.Item>
+            Imprint <ExternalLinkIcon /> |
           </Grid.Item>
         </Grid>
 

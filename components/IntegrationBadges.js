@@ -1,27 +1,26 @@
-import React, { useMemo } from 'react'
-import { Badge } from 'react-bootstrap'
-import { selectMenuCategories } from '../store/selectors'
-import { useSelector } from 'react-redux'
+import React, {useMemo} from 'react'
+import {Badge} from 'react-bootstrap'
+import {selectMenuCategories} from '../store/selectors'
+import {useSelector} from 'react-redux'
 import {Tag, Grid} from '@commercetools-frontend/ui-kit';
 
-const IntegrationBadges = ({ categories }) => (
-  <Grid>
-    {categories.map(category => (
-      <Grid.Item key={category}>
-      <Tag
-        type="normal"
-        style={{padding:'15px'}}
-
-      >
-        {category}
-      </Tag>
-      </Grid.Item>
-    ))}
-  </Grid>
+const IntegrationBadges = ({categories, title}) => (
+  <div style={{width:'100%'}}>
+    <div>{title}</div>
+    <Grid style={{width:'100%'}}>
+      {categories.map(category => (
+        <Grid.Item key={category} style={{marginTop: '5px', width: '100%'}}>
+          <Tag type="normal" style={{width:'100%'}}>
+            {category}
+          </Tag>
+        </Grid.Item>
+      ))}
+    </Grid>
+  </div>
 )
 export default function IntegrationBadgesContainer({
-  product
-}) {
+                                                     product, title
+                                                   }) {
   const menuCategories = useSelector(selectMenuCategories)
   return useMemo(() => {
     const categories = (product?.categories || [])
@@ -29,7 +28,7 @@ export default function IntegrationBadgesContainer({
       .map(c => c.name)
 
     return categories.length
-      ? IntegrationBadges({ categories })
+      ? IntegrationBadges({categories, title})
       : ''
   }, [menuCategories, product])
 }
