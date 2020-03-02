@@ -6,7 +6,11 @@ import {Tag, Grid} from '@commercetools-frontend/ui-kit';
 
 const IntegrationBadges = ({categories, title}) => (
   <div style={{width:'100%'}}>
-    <div>{title}</div>
+    <div>
+      <h4>
+      {title}
+      </h4>
+    </div>
     <Grid style={{width:'100%'}}>
       {categories.map(category => (
         <Grid.Item key={category} style={{marginTop: '5px', width: '100%'}}>

@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react'
 import {PrimaryButton, SecondaryButton, ExternalLinkIcon} from '@commercetools-frontend/ui-kit';
+import Row from 'react-bootstrap/Row';
 
-
-const IntegrationDeveloper = developer => (
+const IntegrationDeveloper = (developer, title) => (
   <React.Fragment>
-    <div>
+    <div style={{width:'100%'}}>
       <h4>
-        Developed by
+        {title}
       </h4>
     </div>
     <div>
@@ -15,12 +15,12 @@ const IntegrationDeveloper = developer => (
   </React.Fragment>
 );
 
-export default function IntegrationDeveloperContainer({ product }) {
+export default function IntegrationDeveloperContainer({ product, title }) {
 
   // The element will be created based on the assets and/or existence of variant image with tag 'developer'
   return useMemo(() => {
 
-    return IntegrationDeveloper(product.Developer);
+    return IntegrationDeveloper(product.Developer, title);
     // TODO: Fix this
     /*
     const links = !product.assets

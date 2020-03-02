@@ -18,50 +18,47 @@ import IntegrationDeveloper from "./IntegrationDeveloper";
 
 const ProductDetail = ({product}) => (
   <div className="vendor-details">
-    <Row className="row">
-      <Col sm={12}>
-        <Text.Headline as="h1">
-          {"About " + product.name}
-        </Text.Headline>
-      </Col>
-    </Row>
-    <Row className="row">
-      <Col sm={9}>
-        <HtmlDiv
-          content={product.description}
-          className="description"
-        />
-      </Col>
-      <Col sm={3}>
-        {product.logo && (
-          <img src={product.logo} className="vendor-logo"/>
-        )}
+    <Row>
+      <Col sm={9} style={{paddingRight: '40px'}}>
         <Row>
-          <IntegrationBadges product={product} title="Part of"/>
+          <Text.Headline as="h1">
+            {"About " + product.name}
+          </Text.Headline>
+        </Row>
+        <Row>
+          <HtmlDiv
+            content={product.description}
+            className="description"
+          />
+        </Row>
+        <Row>
+          <Text.Headline as="h2">
+            Description of the Integration
+          </Text.Headline>
+        </Row>
+        <Row>
+          <HtmlDiv
+            content={product.Description}
+            className="integration-description"
+          />
+        </Row>
+        <Row>
+          <Screenshots product={product}/>
         </Row>
       </Col>
-    </Row>
-    <Row>
-      <Col sm={9}>
-        <Text.Headline as="h2">
-          Description of the Integration
-        </Text.Headline>
-      </Col>
-    </Row>
-    <Row>
-      {/*Should be conditional in case no developer set*/}
-      <Col sm={9}>
-        <HtmlDiv
-          content={product.Description}
-          className="integration-description"
-        />
-      </Col>
       <Col sm={3}>
-        <IntegrationDeveloper product={product}/>
+        <Row style={{paddingLeft: '10px'}}>
+          {product.logo && (
+            <img src={product.logo} className="vendor-logo"/>
+          )}
+        </Row>
+        <Row style={{paddingLeft: '10px'}}>
+          <IntegrationBadges product={product} title="Integration Type"/>
+        </Row>
+        <Row style={{paddingLeft: '10px'}}>
+          <IntegrationDeveloper product={product} title="Developed By"/>
+        </Row>
       </Col>
-    </Row>
-    <Row>
-      <Screenshots product={product}/>
     </Row>
   </div>
 )
