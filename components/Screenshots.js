@@ -5,6 +5,7 @@ import React, {
   useCallback
 } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import {Text} from '@commercetools-frontend/ui-kit';
 import LightBox from './LightBox'
 const Screenshots = ({
   images,
@@ -12,13 +13,14 @@ const Screenshots = ({
   setOpen,
   openLightBox,
   index,
-  setIndex
+  setIndex,
+  title
 }) => (
   <React.Fragment>
     <div>
-      <h1 className="integration-header">
-        Screenshots and Videos
-      </h1>
+      <Text.Headline as="h2">
+        {title}
+      </Text.Headline>
       <Container className="product-list">
         {images.map((row, index) => (
           <Row key={index}>
@@ -49,7 +51,7 @@ const Screenshots = ({
     </div>
   </React.Fragment>
 )
-export default function ScreenshotsContainer({ product }) {
+export default function ScreenshotsContainer({ product, title }) {
   const [open, setOpen] = useState(false)
   const [index, setIndex] = useState(0)
   const openLightBox = useCallback((e, index) => {
@@ -77,7 +79,8 @@ export default function ScreenshotsContainer({ product }) {
           setOpen,
           openLightBox,
           index,
-          setIndex
+          setIndex,
+          title
         })
   }, [index, open, openLightBox, product])
 }

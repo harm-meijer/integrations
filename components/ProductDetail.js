@@ -43,7 +43,7 @@ const ProductDetail = ({product}) => (
           />
         </Row>
         <Row>
-          <Screenshots product={product}/>
+          <Screenshots product={product} title="Screenshots"/>
         </Row>
       </Col>
       <Col sm={3}>
