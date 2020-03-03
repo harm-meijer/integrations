@@ -8,8 +8,11 @@ import { useSelector } from 'react-redux'
 import SubHeader from './SubHeader'
 import {LoadingSpinner} from '@commercetools-frontend/ui-kit';
 import Footer from './Footer';
+import ReactGA from 'react-ga';
 
 function Layout({SubHeader,...props}) {
+  ReactGA.initialize('UA-159551406-1');
+
   return (
     <React.Fragment>
       <Head>
