@@ -6,7 +6,7 @@ const IndexHeader = () => (
       commercetools Integration Marketplace
     </h1>
     <h2>
-      Browse official third party integration extensions
+      Browse official third party integration and extensions
     </h2>
   </div>
 )
