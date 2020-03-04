@@ -1,18 +1,17 @@
 import React, { memo } from 'react'
-import {Text} from '@commercetools-frontend/ui-kit';
+import { Text } from '@commercetools-frontend/ui-kit'
 
-const Section = ({header, subHeader}) => {
+const Section = ({ header, subHeader }) => {
   return (
-    <div style={{paddingTop:'15px'}}>
+    <div style={{ paddingTop: '15px' }}>
       <Text.Headline as="h1">
-        {header}
+        <React.Fragment>{header}</React.Fragment>
       </Text.Headline>
       <Text.Subheadline as="h4">
-        {subHeader}
+        <React.Fragment>{subHeader}</React.Fragment>
       </Text.Subheadline>
     </div>
   )
 }
 
-export default memo(Section);
-
+export default memo(Section)

@@ -3,13 +3,12 @@ import Layout from '../components/Layout'
 import { needProducts, needCategories } from '../helpers'
 import ProductList from '../components/ProductList'
 import {
-  selectQuery,
   selectCategoryBySlug,
   selectProductsList,
   useResults
 } from '../store/selectors'
 // import IntegrationsHeader from '../components/IntegrationsHeader'
-import Section from '../components/Section';
+import Section from '../components/Section'
 
 function ProductsOfCategory(props) {
   return (
@@ -18,7 +17,10 @@ function ProductsOfCategory(props) {
       metaDescription={props.metaDescription}
       metaKeywords={props.metaKeywords}
     >
-      <Section header={props.title} subHeader={props.subTitle}/>
+      <Section
+        header={props.title}
+        subHeader={props.subTitle}
+      />
       <ProductList
         path="integrations"
         queryKey="category"
@@ -36,7 +38,7 @@ ProductsOfCategory.getInitialProps = ({ store, query }) => {
         store.getState(),
         query.category
       )
-      const title = category?.name
+      const title = category?.name || 'All Integratons'
       const subTitle = category?.description
       const { value: products = [] } = useResults([
         selectProductsList(store.getState(), query)

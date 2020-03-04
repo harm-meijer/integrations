@@ -58,14 +58,12 @@ const groupFetchJson = group(fetchJson, cache)
 export const getProducts = (query, getState, dispatch) => {
   return dispatch(loadCategories()).then(() => {
     const categories = selectCategoriesData(getState())
-    const queryCopy = { ...query } //copy query to prevent mutating
-    const category = Object.values(categories).find(
-      category =>
-        get(category, ['slug', LANGUAGE], {}) ===
-        query['category']
+    const { category, ...queryCopy } = query //copy query to prevent mutating
+    const cat = Object.values(categories).find(
+      c => get(c, ['slug', LANGUAGE], {}) === category
     )
-    if (category) {
-      queryCopy.category = category.id
+    if (cat) {
+      queryCopy.category = cat.id
     }
     const url = toUrl(`${API_URL}/product-projections`, {
       query: queryCopy

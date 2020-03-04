@@ -6,18 +6,31 @@ import {
   asCategory
 } from '../store/selectors'
 import ProductList from '../components/ProductList'
-import Section from '../components/Section';
-
+import Section from '../components/Section'
+function After({ index }) {
+  if (index === 0) {
+    return 'Afer first product list'
+  }
+  return ''
+}
+function Before({ index }) {
+  if (index === 0) {
+    return 'Before first product list'
+  }
+  return ''
+}
 function HomePage(props) {
   return (
     <Layout
       title={props.title}
       metaDescription={props.subTitle}
     >
-      {props.list.map(([query, title, subTitle]) => (
+      {props.list.map(([query, title, subTitle], index) => (
         <React.Fragment key={title}>
-          <Section header={title} subHeader={subTitle}/>
+          <Section header={title} subHeader={subTitle} />
+          <Before index={index} />
           <ProductList query={query} columns={4} />
+          <After index={index} />
         </React.Fragment>
       ))}
     </Layout>
