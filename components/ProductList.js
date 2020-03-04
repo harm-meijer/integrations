@@ -1,26 +1,28 @@
-import React, { useMemo } from 'react'
-import { useProducts } from '../hooks'
-import { useSelector } from 'react-redux'
+import React, {useMemo} from 'react'
+import {useProducts} from '../hooks'
+import {useSelector} from 'react-redux'
 import {
   selectProductPage,
   selectQuery,
   selectProductsList,
   useResults
 } from '../store/selectors'
-import { Container, Row, Col } from 'react-bootstrap'
+import {Container, Row, Col} from 'react-bootstrap'
 import Product from './Product'
 import withResult from './withResult'
 
-import { Grid } from '@commercetools-frontend/ui-kit'
+import {Grid} from '@commercetools-frontend/ui-kit'
+import Link from "next/link";
 
 const List = ({
-  products
-  // query,
-  // path,
-  // queryKey,
-  // total,
-  // columns
-}) => {
+                products,
+                showMoreLink
+                // query,
+                // path,
+                // queryKey,
+                // total,
+                // columns
+              }) => {
   // pagination
   // {path &&
   //   total > 1 && ( //paging, is disabled (need styling)
@@ -49,24 +51,45 @@ const List = ({
           </Grid.Item>
         ))}
       </Grid>
+
+      {
+        showMoreLink &&
+        <div style={{paddingTop: '10px'}}>
+          <Link href='/integrations/all'>
+            Click here to see all available integrations...
+          </Link>
+        </div>
+
+      }
+
     </Container>
   ) : (
     <Container className="product-list">
       <Row>
-        <Col sm={12}>No results found</Col>
+        <Col sm={12}>
+          <div>
+            <h4>No results found</h4>
+          </div>
+          <div>
+            <Link href='/integrations/all'>
+              Click here to see all available integrations...
+            </Link>
+          </div>
+        </Col>
       </Row>
     </Container>
   )
 }
 const ResultComponent = withResult(List)
 const ProductListContainer = ({
-  query
-  // path,
-  // queryKey,
-  // columns = 4,
-  // title,
-  // subTitle
-}) => {
+                                query,
+                                showMoreLink = false
+                                // path,
+                                // queryKey,
+                                // columns = 4,
+                                // title,
+                                // subTitle
+                              }) => {
   const queryFromStore = useSelector(selectQuery)
   const productQuery = query || queryFromStore
   useProducts(productQuery)
@@ -87,7 +110,8 @@ const ProductListContainer = ({
     () =>
       ResultComponent({
         ...result.value,
-        ...result
+        ...result,
+        showMoreLink
         // query: productQuery,
         // path,
         // queryKey,

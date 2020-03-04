@@ -38,7 +38,7 @@ ProductsOfCategory.getInitialProps = ({ store, query }) => {
         store.getState(),
         query.category
       )
-      const title = category?.name || 'All Integratons'
+      const title = category?.name || 'All Available Integrations'
       const subTitle = category?.description
       const { value: products = [] } = useResults([
         selectProductsList(store.getState(), query)

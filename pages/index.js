@@ -7,18 +7,23 @@ import {
 } from '../store/selectors'
 import ProductList from '../components/ProductList'
 import Section from '../components/Section'
+import Banner from '../components/Banner'
+
 function After({ index }) {
   if (index === 0) {
-    return 'Afer first product list'
+    //(<Banner title="Browse all official third party integration and extensions" content="This is content"/>);
   }
   return ''
 }
 function Before({ index }) {
   if (index === 0) {
-    return 'Before first product list'
+    // return (
+    //   <div>TEST</div>
+    // );
   }
   return ''
 }
+
 function HomePage(props) {
   return (
     <Layout
@@ -28,9 +33,9 @@ function HomePage(props) {
       {props.list.map(([query, title, subTitle], index) => (
         <React.Fragment key={title}>
           <Section header={title} subHeader={subTitle} />
-          <Before index={index} />
-          <ProductList query={query} columns={4} />
-          <After index={index} />
+          {/*<Before index={index} />*/}
+          <ProductList query={query} columns={4} showMoreLink={true}/>
+          {/*<After index={index} />*/}
         </React.Fragment>
       ))}
     </Layout>
