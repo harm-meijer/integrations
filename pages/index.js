@@ -27,13 +27,10 @@ function Before({ index }) {
 function HomePage(props) {
   return (
     <div>
-      port: {process.env.port}
-      language: {process.env.LANGUAGE}
-      node_env: {process.env.NODE_ENV}
-      auth_url:
-      {process.env.AUTH_URL}
-      lowercase auth_url:
-      {process.env.auth_url}
+      <div>port: {process.env.port}</div>
+      <div>language: {process.env.LANGUAGE}</div>
+      <div>node_env: {process.env.NODE_ENV}</div>
+      <div>works:{process.env.WORKS}</div>
     </div>
   )
 }
