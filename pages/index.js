@@ -7,22 +7,6 @@ import {
 } from '../store/selectors'
 import ProductList from '../components/ProductList'
 import Section from '../components/Section'
-import Banner from '../components/Banner'
-
-function After({ index }) {
-  if (index === 0) {
-    //(<Banner title="Browse all official third party integration and extensions" content="This is content"/>);
-  }
-  return ''
-}
-function Before({ index }) {
-  if (index === 0) {
-    // return (
-    //   <div>TEST</div>
-    // );
-  }
-  return ''
-}
 
 function HomePage(props) {
   return (
@@ -34,7 +18,11 @@ function HomePage(props) {
         <React.Fragment key={title}>
           <Section header={title} subHeader={subTitle} />
           {/*<Before index={index} />*/}
-          <ProductList query={query} columns={4} showMoreLink={true}/>
+          <ProductList
+            query={query}
+            columns={4}
+            showMoreLink={true}
+          />
           {/*<After index={index} />*/}
         </React.Fragment>
       ))}

@@ -1,28 +1,28 @@
-import React, {useMemo} from 'react'
-import {useProducts} from '../hooks'
-import {useSelector} from 'react-redux'
+import React, { useMemo } from 'react'
+import { useProducts } from '../hooks'
+import { useSelector } from 'react-redux'
 import {
   selectProductPage,
   selectQuery,
   selectProductsList,
   useResults
 } from '../store/selectors'
-import {Container, Row, Col} from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import Product from './Product'
 import withResult from './withResult'
 
-import {Grid} from '@commercetools-frontend/ui-kit'
-import Link from "next/link";
+import { Grid } from '@commercetools-frontend/ui-kit'
+import Link from 'next/link'
 
 const List = ({
-                products,
-                showMoreLink
-                // query,
-                // path,
-                // queryKey,
-                // total,
-                // columns
-              }) => {
+  products,
+  showMoreLink
+  // query,
+  // path,
+  // queryKey,
+  // total,
+  // columns
+}) => {
   // pagination
   // {path &&
   //   total > 1 && ( //paging, is disabled (need styling)
@@ -59,9 +59,7 @@ const List = ({
             <a>See all available integrations...</a>
           </Link>
         </div>
-
-      }
-
+      )}
     </Container>
   ) : (
     <Container className="product-list">
@@ -82,14 +80,14 @@ const List = ({
 }
 const ResultComponent = withResult(List)
 const ProductListContainer = ({
-                                query,
-                                showMoreLink = false
-                                // path,
-                                // queryKey,
-                                // columns = 4,
-                                // title,
-                                // subTitle
-                              }) => {
+  query,
+  showMoreLink = false
+  // path,
+  // queryKey,
+  // columns = 4,
+  // title,
+  // subTitle
+}) => {
   const queryFromStore = useSelector(selectQuery)
   const productQuery = query || queryFromStore
   useProducts(productQuery)
@@ -119,7 +117,7 @@ const ProductListContainer = ({
         // subTitle: title === subTitle ? '' : subTitle,
         // columns
       }),
-    [result]
+    [result, showMoreLink]
   )
 }
 export default ProductListContainer

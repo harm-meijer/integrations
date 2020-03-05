@@ -18,8 +18,7 @@ console.log(
       AUTH_URL,
       API_URL,
       SCOPES,
-      NODE_ENV: process.env.NODE_ENV,
-      PORT: process.env.PORT
+      NODE_ENV: process.env.NODE_ENV
     },
     undefined,
     2

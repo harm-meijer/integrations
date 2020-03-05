@@ -1,12 +1,12 @@
 import React from 'react'
-import Layout from '../components/Layout'
-import { needProducts, needCategories } from '../helpers'
-import ProductList from '../components/ProductList'
+import Layout from '../../components/Layout'
+import { needProducts, needCategories } from '../../helpers'
+import ProductList from '../../components/ProductList'
 import {
   selectProductsList,
   useResults
-} from '../store/selectors'
-import Section from '../components/Section'
+} from '../../store/selectors'
+import Section from '../../components/Section'
 
 function ProductsSearch(props) {
   return (
