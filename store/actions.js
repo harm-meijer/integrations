@@ -1,4 +1,7 @@
-import { getProducts, getCategories } from '../api/client'
+import {
+  getProducts,
+  getCategories
+} from '../commercetools-api/client'
 import {
   selectCategories,
   selectProductPage,
