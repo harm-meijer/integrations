@@ -32,6 +32,8 @@ function HomePage(props) {
       node_env: {process.env.NODE_ENV}
       auth_url:
       {process.env.AUTH_URL}
+      lowercase auth_url:
+      {process.env.auth_url}
     </div>
   )
 }
