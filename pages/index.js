@@ -26,22 +26,23 @@ function Before({ index }) {
 
 function HomePage(props) {
   return (
-    <Layout
-      title={props.title}
-      metaDescription={props.subTitle}
-    >
-      {props.list.map(([query, title, subTitle], index) => (
-        <React.Fragment key={title}>
-          <Section header={title} subHeader={subTitle} />
-          {/*<Before index={index} />*/}
-          <ProductList query={query} columns={4} showMoreLink={true}/>
-          {/*<After index={index} />*/}
-        </React.Fragment>
-      ))}
-    </Layout>
+    <div>
+      port: {process.env.port}
+      language: {process.env.LANGUAGE}
+      node_env: {process.env.NODE_ENV}
+      auth_url:
+      {process.env.AUTH_URL}
+    </div>
   )
 }
 HomePage.getInitialProps = ({ store, query }) => {
+  return {
+    title: 'commercetools Integration Marketplace',
+    subTitle:
+      'Browse official third party integrations and extensions',
+    list: [],
+    query
+  }
   if (process.env.SERVER_HYDRATE) {
     return needCategories(store, query)
       .then(() => {
