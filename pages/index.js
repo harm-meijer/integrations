@@ -7,41 +7,29 @@ import {
 } from '../store/selectors'
 import ProductList from '../components/ProductList'
 import Section from '../components/Section'
-import Banner from '../components/Banner'
-
-function After({ index }) {
-  if (index === 0) {
-    //(<Banner title="Browse all official third party integration and extensions" content="This is content"/>);
-  }
-  return ''
-}
-function Before({ index }) {
-  if (index === 0) {
-    // return (
-    //   <div>TEST</div>
-    // );
-  }
-  return ''
-}
 
 function HomePage(props) {
   return (
-    <div>
-      <div>port: {process.env.port}</div>
-      <div>language: {process.env.LANGUAGE}</div>
-      <div>node_env: {process.env.NODE_ENV}</div>
-      <div>works:{process.env.WORKS}</div>
-    </div>
+    <Layout
+      title={props.title}
+      metaDescription={props.subTitle}
+    >
+      {props.list.map(([query, title, subTitle], index) => (
+        <React.Fragment key={title}>
+          <Section header={title} subHeader={subTitle} />
+          {/*<Before index={index} />*/}
+          <ProductList
+            query={query}
+            columns={4}
+            showMoreLink={true}
+          />
+          {/*<After index={index} />*/}
+        </React.Fragment>
+      ))}
+    </Layout>
   )
 }
 HomePage.getInitialProps = ({ store, query }) => {
-  return {
-    title: 'commercetools Integration Marketplace',
-    subTitle:
-      'Browse official third party integrations and extensions',
-    list: [],
-    query
-  }
   if (process.env.SERVER_HYDRATE) {
     return needCategories(store, query)
       .then(() => {

@@ -1,5 +1,4 @@
 const withSass = require('@zeit/next-sass')
-require('dotenv').config()
 
 module.exports = withSass({
   env: {
@@ -10,7 +9,6 @@ module.exports = withSass({
       'newest-integrations'
     ],
     // set false when debugging
-    SERVER_HYDRATE: true,
-    WORKS: process.env.AUTH_URL
+    SERVER_HYDRATE: true
   }
 })

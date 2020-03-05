@@ -9,9 +9,6 @@ export default (req, res) => {
   if (type === 'product-projections') {
     p = api.getProducts(query)
   }
-  if (type === 'zeit') {
-    p = Promise.resolve(process.env)
-  }
   p.then(response => {
     res.statusCode = 200
     res.setHeader('Content-Type', 'application/json')

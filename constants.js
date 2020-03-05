@@ -1,11 +1,9 @@
 export const LANGUAGE = process.env.LANGUAGE
 export const API =
   process.env.NODE_ENV === 'production'
-    ? 'https://commercetools-integrations.herokuapp.com/api'
+    ? 'https://integrations-sigma.now.sh/api'
     : 'http://localhost:8080/api'
-export const LOCAL_API = `http://localhost:${process.env
-  .PORT || 8080}/api`
 export const SITE =
   process.env.NODE_ENV === 'production'
-    ? 'https://commercetools-integrations.herokuapp.com/'
+    ? 'https://integrations-sigma.now.sh/'
     : 'http://localhost:8080/'

@@ -2,9 +2,9 @@ import fetch from 'isomorphic-unfetch'
 import { selectCategoriesData } from '../store/selectors'
 import { loadCategories } from '../store/actions'
 import { get, toUrl, withPage } from '../helpers'
-import { LANGUAGE, API, LOCAL_API } from '../constants'
+import { LANGUAGE, API } from '../constants'
 
-const API_URL = process.browser ? API : LOCAL_API
+const API_URL = API
 const cache = process.browser
   ? new Map()
   : {
