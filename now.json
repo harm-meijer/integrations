@@ -1,0 +1,10 @@
+{
+  "env": {
+    "PROJECT_KEY": "@project_key",
+    "CLIENT_SECRET": "@client_secret",
+    "CLIENT_ID": "@client_id",
+    "AUTH_URL": "@auth_url",
+    "API_URL": "@api_url",
+    "SCOPES": "@scopes"
+  }
+}
