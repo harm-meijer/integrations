@@ -56,7 +56,7 @@ const List = ({
         showMoreLink &&
         <div style={{paddingTop: '10px'}}>
           <Link href='/integrations/all'>
-            Click here to see all available integrations...
+            <a>See all available integrations...</a>
           </Link>
         </div>
 
@@ -72,7 +72,7 @@ const List = ({
           </div>
           <div>
             <Link href='/integrations/all'>
-              Click here to see all available integrations...
+              <a>See all available integrations...</a>
             </Link>
           </div>
         </Col>
