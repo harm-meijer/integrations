@@ -54,7 +54,10 @@ const List = ({
 
       {showMoreLink && (
         <div style={{ paddingTop: '10px' }}>
-          <Link href="/integrations/all">
+          <Link
+            href={'/integration?category=all'}
+            as={'/integration/all'}
+          >
             <a>See all available integrations...</a>
           </Link>
         </div>
@@ -68,7 +71,10 @@ const List = ({
             <h4>No results found</h4>
           </div>
           <div>
-            <Link href="/integrations/all">
+            <Link
+              href={'/integration?category=all'}
+              as={'/integration/all'}
+            >
               <a>See all available integrations...</a>
             </Link>
           </div>
