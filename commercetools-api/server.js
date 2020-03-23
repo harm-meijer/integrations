@@ -79,24 +79,21 @@ const getToken = (refresh = false) => {
   return storageToken && !refresh
     ? Promise.resolve(JSON.parse(storageToken))
     : console.log('fetching token') ||
-        fetch(
-          `${AUTH_URL}/oauth/${PROJECT_KEY}/anonymous/token`,
-          {
-            headers: {
-              accept: '*/*',
-              authorization: `Basic ${base64(
-                `${CLIENT_ID}:${CLIENT_SECRET}`
-              )}`,
-              'content-type':
-                'application/x-www-form-urlencoded',
-              'sec-fetch-mode': 'cors',
-              'sec-fetch-site': 'cross-site'
-            },
-            body: `grant_type=client_credentials&scope=${SCOPES}`,
-            method: 'POST',
-            mode: 'cors'
-          }
-        )
+        fetch(`${AUTH_URL}/oauth/token`, {
+          headers: {
+            accept: '*/*',
+            authorization: `Basic ${base64(
+              `${CLIENT_ID}:${CLIENT_SECRET}`
+            )}`,
+            'content-type':
+              'application/x-www-form-urlencoded',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'cross-site'
+          },
+          body: `grant_type=client_credentials&scope=${SCOPES}`,
+          method: 'POST',
+          mode: 'cors'
+        })
           .then(r => r.json())
           .then(
             token => {
