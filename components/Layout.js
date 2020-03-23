@@ -10,12 +10,15 @@ import { LoadingSpinner } from '@commercetools-frontend/ui-kit'
 import Footer from './Footer'
 import ReactGA from 'react-ga'
 
-ReactGA.initialize('UA-159551406-1')
+ReactGA.initialize('UA-159551406-1', {
+  alwaysSendToDefaultTracker: true
+})
 
 const trackPage = page => {
   ReactGA.set({
     page
   })
+  console.log('no shit sherlock', ReactGA.pageview)
   ReactGA.pageview(page)
 }
 function Layout({ SubHeader, ...props }) {
