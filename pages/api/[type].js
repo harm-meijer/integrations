@@ -9,13 +9,15 @@ export default (req, res) => {
   if (type === 'product-projections') {
     p = api.getProducts(query)
   }
-  p.then(response => {
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify(response, undefined, 2))
-  }).catch(err => {
-    res.statusCode = 500
-    res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify(err))
-  })
+  return p
+    .then(response => {
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify(response, undefined, 2))
+    })
+    .catch(err => {
+      res.statusCode = 500
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify(err))
+    })
 }
