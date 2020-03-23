@@ -52,10 +52,9 @@ const List = ({
         ))}
       </Grid>
 
-      {
-        showMoreLink &&
-        <div style={{paddingTop: '10px'}}>
-          <Link href='/integrations/all'>
+      {showMoreLink && (
+        <div style={{ paddingTop: '10px' }}>
+          <Link href="/integrations/all">
             <a>See all available integrations...</a>
           </Link>
         </div>
@@ -69,7 +68,7 @@ const List = ({
             <h4>No results found</h4>
           </div>
           <div>
-            <Link href='/integrations/all'>
+            <Link href="/integrations/all">
               <a>See all available integrations...</a>
             </Link>
           </div>
