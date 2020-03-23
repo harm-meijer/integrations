@@ -18,7 +18,6 @@ const trackPage = page => {
   ReactGA.set({
     page
   })
-  console.log('no shit sherlock', ReactGA.pageview)
   ReactGA.pageview(page)
 }
 function Layout({ SubHeader, ...props }) {
@@ -29,7 +28,6 @@ function Layout({ SubHeader, ...props }) {
     if (page) {
       trackPage(page)
     }
-    return () => console.log('cleaning up')
   }, [page])
 
   return (
