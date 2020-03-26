@@ -52,7 +52,7 @@ function Layout({ SubHeader, ...props }) {
           href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="favicon.png" type="image/png" sizes="16x16"/>
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="16x16"/>
       </Head>
       <SubHeader />
       <Container
