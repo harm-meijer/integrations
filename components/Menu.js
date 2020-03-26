@@ -106,7 +106,10 @@ const MenuLinkContainer = ({ category, level = 0 }) => {
   return useMemo(
     () =>
       MenuLink({
-        category,
+        category:
+          category.slug === 'integrations'
+            ? { ...category, slug: 'all' }
+            : category,
         handleOpen,
         handleClose,
         MobileToggle,
