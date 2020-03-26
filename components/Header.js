@@ -1,10 +1,15 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Link from 'next/link'
-function Header({ Menu, Search, SubHeader = () => '' }) {
+function Header({ Menu, Search }) {
+  const [nav, setNav] = useState(false)
   return (
     <header className="header">
-      <Navbar expand="md">
+      <Navbar
+        expand="md"
+        onClick={() => setNav(n => !n)}
+        expanded={nav}
+      >
         <Navbar.Brand>
           <Link href="/">
             <div className="clickable">
