@@ -13,7 +13,9 @@ function Header({ Menu, Search, SubHeader = () => '' }) {
                 src="/commercetools-logo.png"
                 title="Home"
               />
-              Integration Marketplace
+              <span className="d-none d-sm-block">
+                Integration Marketplace
+              </span>
             </div>
           </Link>
         </Navbar.Brand>
