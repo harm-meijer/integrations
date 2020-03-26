@@ -19,12 +19,12 @@ import IntegrationDeveloper from "./IntegrationDeveloper";
 const ProductDetail = ({product}) => (
   <div className="vendor-details">
     <Row>
-      <Col sm={9}>
+      <Col sm={7}>
         {product.logo && (
           <img src={product.logo} className="vendor-logo"/>
         )}
       </Col>
-      <Col sm={3}>
+      <Col sm={5}>
         <Spacings.Stack scale="m">
           <IntegrationBadges product={product} title="Integration Type"/>
           <IntegrationDeveloper product={product} title="Developed By"/>
