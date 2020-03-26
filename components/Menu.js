@@ -26,6 +26,7 @@ function MenuLink({
   category,
   handleOpen,
   handleClose,
+  MobileToggle,
   isOpen,
   level
 }) {
@@ -38,12 +39,14 @@ function MenuLink({
         >
           <span className="link-content">
             {category.name}
+            <MobileToggle />
           </span>
+          {}
         </Link>
       }
       onMouseEnter={handleOpen}
       onMouseLeave={handleClose}
-      onClick={handleClose}
+      onClick={() => handleClose()}
       show={isOpen}
       id={category.id}
       className={level && 'dropdown-submenu'}
@@ -69,12 +72,36 @@ function MenuLink({
     </Nav.Link>
   )
 }
+const worksWithButton = () =>
+  process.browser &&
+  ('ontouchstart' in window || window.innerWidth <= 768)
 const MenuLinkContainer = ({ category, level = 0 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const handleOpen = useCallback(() => setIsOpen(true), [])
-  const handleClose = useCallback(
-    () => setIsOpen(false),
-    []
+  const handleOpen = useCallback(() => {
+    //touch devices see a click as mouse enter, let the button handle
+    //  open or this will open and the button will close the submenu
+    if (!worksWithButton()) {
+      setIsOpen(true)
+    }
+  }, [])
+  const handleClose = useCallback(() => {
+    if (!worksWithButton()) {
+      setIsOpen(false)
+    }
+  }, [])
+  const MobileToggle = useMemo(
+    () => () => (
+      <button
+        onClick={e => {
+          e.stopPropagation()
+          e.preventDefault()
+          setIsOpen(open => !open)
+        }}
+      >
+        {isOpen ? '-' : '+'}
+      </button>
+    ),
+    [isOpen]
   )
   return useMemo(
     () =>
@@ -82,10 +109,18 @@ const MenuLinkContainer = ({ category, level = 0 }) => {
         category,
         handleOpen,
         handleClose,
+        MobileToggle,
         isOpen,
         level
       }),
-    [category, handleClose, handleOpen, isOpen, level]
+    [
+      MobileToggle,
+      category,
+      handleClose,
+      handleOpen,
+      isOpen,
+      level
+    ]
   )
 }
 const MenuContainer = props => {

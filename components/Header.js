@@ -4,16 +4,16 @@ import Link from 'next/link'
 function Header({ Menu, Search, SubHeader = () => '' }) {
   return (
     <header className="header">
-      <Navbar expand="sm">
+      <Navbar expand="md">
         <Navbar.Brand>
-          <Link href="/" >
+          <Link href="/">
             <div className="clickable">
-            <img
-              className="logo"
-              src="/commercetools-logo.png"
-              title="Home"
-            />
-            Integration Marketplace
+              <img
+                className="logo"
+                src="/commercetools-logo.png"
+                title="Home"
+              />
+              Integration Marketplace
             </div>
           </Link>
         </Navbar.Brand>
