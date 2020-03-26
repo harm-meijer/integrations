@@ -38,24 +38,24 @@ html {
 
 h1 {
   color: #000000;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 300;
 }
 
 h2 {
   color: #000000;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 h3 {
   color: #213c45;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 h4 {
   color: #213c45;
   font-family: Roboto;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 26px;
 }
 
@@ -71,7 +71,7 @@ h4 {
   max-height: 40px;
 }
 .vendor-logo {
-  max-width: 100%;
+  max-width: 90%;
 }
 .vendor-image {
   width: 100%;
@@ -251,9 +251,6 @@ h4 {
 }
 
 #content {
-  padding-left:10%;
-  padding-right:10%;
-  //min-height: 100vh !important;
   margin-bottom: 100px;
 }
 

@@ -1,21 +1,21 @@
-import React, { useMemo } from 'react'
-import {PrimaryButton, SecondaryButton, ExternalLinkIcon} from '@commercetools-frontend/ui-kit';
+import React, {useMemo} from 'react'
+import {PrimaryButton, SecondaryButton, ExternalLinkIcon, Tag, Spacings} from '@commercetools-frontend/ui-kit';
 import Row from 'react-bootstrap/Row';
 
 const IntegrationDeveloper = (developer, title) => (
   <React.Fragment>
-    <div style={{width:'100%'}}>
+    <Spacings.Stack scale="s">
       <h4>
         {title}
       </h4>
-    </div>
-    <div>
-      {developer}
-    </div>
+      <Tag type="normal" style={{width: '100%'}}>
+        {developer}
+      </Tag>
+    </Spacings.Stack>
   </React.Fragment>
 );
 
-export default function IntegrationDeveloperContainer({ product, title }) {
+export default function IntegrationDeveloperContainer({product, title}) {
 
   // The element will be created based on the assets and/or existence of variant image with tag 'developer'
   return useMemo(() => {

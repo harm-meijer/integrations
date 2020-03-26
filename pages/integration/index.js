@@ -20,9 +20,8 @@ function ProductDetailPage({
       metaKeywords={metaKeywords}
       SubHeader={ProductDetailHeader}
     >
-      <div>
-        <ProductDetail />
-      </div>
+
+      <ProductDetail />
     </Layout>
   )
 }

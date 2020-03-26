@@ -11,7 +11,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Product from './Product'
 import withResult from './withResult'
 
-import { Grid } from '@commercetools-frontend/ui-kit'
+import { Grid, Spacings } from '@commercetools-frontend/ui-kit'
 import Link from 'next/link'
 
 const List = ({
@@ -43,7 +43,7 @@ const List = ({
       <Grid
         gridGap="16px"
         gridAutoColumns="1fr"
-        gridTemplateColumns={'repeat(4, 1fr)'}
+        gridTemplateColumns={'repeat(auto-fill, minmax(200px, 1fr))'}
       >
         {products.map((product, index) => (
           <Grid.Item key={index} className="clickable">
@@ -65,21 +65,16 @@ const List = ({
     </Container>
   ) : (
     <Container className="product-list">
-      <Row>
-        <Col sm={12}>
-          <div>
-            <h4>No results found</h4>
-          </div>
-          <div>
-            <Link
-              href={'/integrations?category=all'}
-              as={'/integrations/all'}
-            >
-              <a>See all available integrations...</a>
-            </Link>
-          </div>
-        </Col>
-      </Row>
+      <Spacings.Inset scale={'l'}>
+        <h4>No results found</h4>
+        <Link
+          href={'/integrations?category=all'}
+          as={'/integrations/all'}
+        >
+          <a>See all available integrations...</a>
+        </Link>
+
+      </Spacings.Inset>
     </Container>
   )
 }
