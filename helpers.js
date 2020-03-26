@@ -93,3 +93,6 @@ export const withPage = ({
   pageSize,
   ...query
 })
+export const collapsedMenu = () =>
+  process.browser &&
+  ('ontouchstart' in window || window.innerWidth <= 768)

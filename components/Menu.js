@@ -9,6 +9,7 @@ import { selectMenuCategoriesNested } from '../store/selectors'
 import { useCategories } from '../hooks'
 import Nav from 'react-bootstrap/Nav'
 import { NavDropdown } from 'react-bootstrap'
+import { collapsedMenu } from '../helpers'
 
 function Menu({ categories = [] }) {
   return (
@@ -72,20 +73,17 @@ function MenuLink({
     </Nav.Link>
   )
 }
-const worksWithButton = () =>
-  process.browser &&
-  ('ontouchstart' in window || window.innerWidth <= 768)
 const MenuLinkContainer = ({ category, level = 0 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const handleOpen = useCallback(() => {
     //touch devices see a click as mouse enter, let the button handle
     //  open or this will open and the button will close the submenu
-    if (!worksWithButton()) {
+    if (!collapsedMenu()) {
       setIsOpen(true)
     }
   }, [])
   const handleClose = useCallback(() => {
-    if (!worksWithButton()) {
+    if (!collapsedMenu()) {
       setIsOpen(false)
     }
   }, [])
