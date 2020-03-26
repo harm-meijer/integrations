@@ -54,7 +54,9 @@ function Layout({ SubHeader, ...props }) {
         />
       </Head>
       <SubHeader />
-      <Container style={{ position: 'relative' }}>
+      <Container
+        style={{ position: 'relative', zIndex: '1' }}
+      >
         <Header Menu={Menu} Search={Search} />
       </Container>
       <Container className="content">
