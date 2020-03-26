@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import {PrimaryButton, SecondaryButton, ExternalLinkIcon} from '@commercetools-frontend/ui-kit';
+import {PrimaryButton, SecondaryButton, ExternalLinkIcon, Grid} from '@commercetools-frontend/ui-kit';
 
 const Links = links => (
   <React.Fragment>
