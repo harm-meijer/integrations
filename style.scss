@@ -91,7 +91,11 @@ h4 {
   margin-top: 30px;
   min-height: 250px;
 }
-
+@media (max-width: 768px) {
+  .brand-title {
+    display: none;
+  }
+}
 .dropdown-submenu {
   position: relative;
   padding-right: 8px;
@@ -285,8 +289,6 @@ h4 {
   //}
   top: 300px;
   position: relative;
-  border-radius: 16px
+  border-radius: 16px;
   //height: 100vh;
 }
-
-

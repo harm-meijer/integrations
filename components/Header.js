@@ -18,7 +18,7 @@ function Header({ Menu, Search }) {
                 src="/commercetools-logo.png"
                 title="Home"
               />
-              <span className="d-none d-sm-block">
+              <span className="brand-title">
                 Integration Marketplace
               </span>
             </div>
