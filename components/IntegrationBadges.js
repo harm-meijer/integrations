@@ -14,9 +14,11 @@ const IntegrationBadges = ({categories, title}) => (
     <Grid style={{width:'100%'}}>
       {categories.map(category => (
         <Grid.Item key={category} style={{marginTop: '5px', width: '100%'}}>
-          <Tag type="normal" style={{width:'100%'}}>
-            {category}
-          </Tag>
+          <Badge variant="primary" style={{backgroundColor:'#00b39e'}}>{category}</Badge>
+
+          {/*<Tag type="normal" style={{width:'100%'}}>*/}
+            {/*{category}*/}
+          {/*</Tag>*/}
         </Grid.Item>
       ))}
     </Grid>

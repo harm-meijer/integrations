@@ -8,9 +8,9 @@ const IntegrationDeveloper = (developer, title) => (
       <h4>
         {title}
       </h4>
-      <Tag type="normal" style={{width: '100%'}}>
+      <span style={{width: '100%'}}>
         {developer}
-      </Tag>
+      </span>
     </Spacings.Stack>
   </React.Fragment>
 );
