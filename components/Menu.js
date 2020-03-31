@@ -11,13 +11,14 @@ import Nav from 'react-bootstrap/Nav'
 import { NavDropdown } from 'react-bootstrap'
 import { collapsedMenu } from '../helpers'
 
-function Menu({ categories = [] }) {
+function Menu({ categories = [], subCategoryLevel }) {
   return (
     <Nav className="ct-menu">
       {categories.map(category => (
         <MenuLinkContainer
           key={category.id}
           category={category}
+          subCategoryLevel={subCategoryLevel}
         />
       ))}
     </Nav>
@@ -29,9 +30,10 @@ function MenuLink({
   handleClose,
   MobileToggle,
   isOpen,
-  level
+  level,
+  subCategoryLevel
 }) {
-  return category.subCategories.length ? (
+  return (category.subCategories.length && level < subCategoryLevel) ? (
     <NavDropdown
       title={
         <Link
@@ -52,13 +54,16 @@ function MenuLink({
       id={category.id}
       className={level && 'dropdown-submenu'}
     >
-      {category.subCategories.map(category => (
-        <MenuLinkContainer
-          category={category}
-          key={category.id}
-          level={level + 1}
-        />
-      ))}
+      {
+            category.subCategories.map(category => (
+            <MenuLinkContainer
+              category={category}
+              key={category.id}
+              level={level + 1}
+            />
+          ))
+      }
+
     </NavDropdown>
   ) : (
     <Nav.Link>
@@ -73,7 +78,7 @@ function MenuLink({
     </Nav.Link>
   )
 }
-const MenuLinkContainer = ({ category, level = 0 }) => {
+const MenuLinkContainer = ({ category, level = 0, subCategoryLevel }) => {
   const [isOpen, setIsOpen] = useState(false)
   const handleOpen = useCallback(() => {
     //touch devices see a click as mouse enter, let the button handle
@@ -112,7 +117,8 @@ const MenuLinkContainer = ({ category, level = 0 }) => {
         handleClose,
         MobileToggle,
         isOpen,
-        level
+        level,
+        subCategoryLevel
       }),
     [
       MobileToggle,
@@ -120,7 +126,8 @@ const MenuLinkContainer = ({ category, level = 0 }) => {
       handleClose,
       handleOpen,
       isOpen,
-      level
+      level,
+      subCategoryLevel
     ]
   )
 }
