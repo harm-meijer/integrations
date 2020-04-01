@@ -72,6 +72,19 @@ function Layout({ SubHeader, ...props }) {
         )}
       </Container>
       <Footer />
+      <script
+        type="text/javascript"
+        src="https://cdn.cookielaw.org/consent/b104027d-4d10-4b75-9675-9ffef11562a8/OtAutoBlock.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+        charSet="UTF-8"
+        data-domain-script="b104027d-4d10-4b75-9675-9ffef11562a8"
+      ></script>
+      <script type="text/javascript">
+        function OptanonWrapper() {}
+      </script>
     </React.Fragment>
   )
 }
