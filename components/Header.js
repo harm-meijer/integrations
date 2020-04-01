@@ -35,7 +35,7 @@ function Header({ Menu, Search }) {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Menu />
+          <Menu subCategoryLevel={2} />
           <Search setNav={setNav} />
         </Navbar.Collapse>
       </Navbar>
