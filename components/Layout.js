@@ -11,10 +11,12 @@ import Footer from './Footer'
 import ReactGA from 'react-ga'
 
 ReactGA.initialize('UA-38285631-30', {
-  alwaysSendToDefaultTracker: true
+  alwaysSendToDefaultTracker: true,
+  debug: true
 })
 
 const trackPage = page => {
+  console.log('Logging ' + page);
   ReactGA.set({
     page
   })
@@ -24,6 +26,7 @@ function Layout({ SubHeader, ...props }) {
   const page = process.browser
     ? window.location.pathname
     : false
+
   useEffect(() => {
     if (page) {
       trackPage(page)
