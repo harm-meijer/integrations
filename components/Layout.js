@@ -12,11 +12,11 @@ import ReactGA from 'react-ga'
 
 ReactGA.initialize('UA-38285631-30', {
   alwaysSendToDefaultTracker: true,
-  debug: true
+  // debug: true
 })
 
 const trackPage = page => {
-  console.log('Logging ' + page);
+  // console.log('Logging ' + page);
   ReactGA.set({
     page
   })
