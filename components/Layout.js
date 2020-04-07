@@ -10,7 +10,7 @@ import { LoadingSpinner } from '@commercetools-frontend/ui-kit'
 import Footer from './Footer'
 import ReactGA from 'react-ga'
 
-ReactGA.initialize('UA-159551406-1', {
+ReactGA.initialize('UA-38285631-30', {
   alwaysSendToDefaultTracker: true
 })
 
@@ -86,8 +86,8 @@ function Layout({ SubHeader, ...props }) {
           ></script>
           <script type="text/javascript">
             function OptanonWrapper() {}
-          </script> 
-        </React.Fragment>     
+          </script>
+        </React.Fragment>
       }
     </React.Fragment>
   )
