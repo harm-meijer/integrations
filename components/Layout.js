@@ -91,7 +91,9 @@ function Layout({ SubHeader, ...props }) {
             data-domain-script="b104027d-4d10-4b75-9675-9ffef11562a8"
           ></script>
           <script type="text/javascript">
-            {`function OptanonWrapper() {}`}
+            {`function OptanonWrapper() {
+              window.location.reload();
+            }`}
           </script>
         </React.Fragment>
       }
