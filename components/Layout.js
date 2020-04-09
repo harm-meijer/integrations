@@ -92,7 +92,7 @@ function Layout({ SubHeader, ...props }) {
           ></script>
           <script type="text/javascript">
             {`function OptanonWrapper() {
-              window.location.reload();
+              //window.location.reload();
             }`}
           </script>
         </React.Fragment>
