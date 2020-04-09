@@ -16,8 +16,8 @@ const Product = ({
 
   <Card theme="light" type="raised">
     <Link href={`/integration?slug=${slug}`} as={`/integration/${slug}`}>
-      <div className="image-row" style={{height: '75px'}}>
-        <div style={{background: 'url(' + logo + ') no-repeat center', height: '75px', backgroundSize: 'contain'}}
+      <div className="image-row">
+        <div style={{backgroundImage: 'url(' + logo + ')'}}
              className="vendor-logo"></div>
       </div>
     </Link>

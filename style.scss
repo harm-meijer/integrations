@@ -292,3 +292,12 @@ h4 {
   border-radius: 16px;
   //height: 100vh;
 }
+.image-row {
+  height: 75px;
+  &>div {
+    height: 75px;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position:center;
+  }
+}
