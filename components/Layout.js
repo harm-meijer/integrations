@@ -16,11 +16,14 @@ ReactGA.initialize('UA-38285631-30', {
 })
 
 const trackPage = page => {
-  // console.log('Logging ' + page);
-  ReactGA.set({
-    page
-  })
-  ReactGA.pageview(page)
+  try{
+    ReactGA.set({
+      page
+    })
+    ReactGA.pageview(page)
+  }catch(e){
+    console.log('error in google analytics:',e)
+  }
 }
 function Layout({ SubHeader, ...props }) {
   const page = process.browser
