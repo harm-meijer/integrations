@@ -90,9 +90,9 @@ function Layout({ SubHeader, ...props }) {
             charSet="UTF-8"
             data-domain-script="b104027d-4d10-4b75-9675-9ffef11562a8"
           ></script>
-          {/*<script type="text/javascript">*/}
-            {/*function OptanonWrapper() {}*/}
-          {/*</script>*/}
+          <script type="text/javascript">
+            {`function OptanonWrapper() {}`}
+          </script>
         </React.Fragment>
       }
     </React.Fragment>
